@@ -1,0 +1,42 @@
+#main-container {
+    margin: 0px auto 20px auto;
+    width: 800px;
+}
+
+#main-menu ul {
+    padding: 0px;
+    border: 0px solid #FF9400;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+#main-menu li {
+    margin: 0px;
+    display: inline;
+}
+
+#main-menu li:hover {
+    background-color: #FF9400;
+}
+
+#main-menu a {
+    background-color: transparent;
+}
+
+#main-menu a:link {
+    color: #FF9400;
+    text-decoration: none;
+}
+    
+#main-menu a:hover {
+    color: #FFF;
+}
+
+#main-head h1 {
+    font-family: georgia, times, serif;
+    text-align: center;
+    color: #FF9400;
+}
+
+
+
