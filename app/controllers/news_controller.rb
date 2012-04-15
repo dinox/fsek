@@ -6,7 +6,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @news }
+      format.json { render :json => @news }
     end
   end
 
@@ -17,7 +17,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @news }
+      format.json { render :json => @news }
     end
   end
 
@@ -28,7 +28,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @news }
+      format.json { render :json => @news }
     end
   end
 
@@ -44,11 +44,11 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
-        format.json { render json: @news, status: :created, location: @news }
+        format.html { redirect_to @news, :notice => 'News was successfully created.' }
+        format.json { render :json => @news, :status => :created, :location => @news }
       else
-        format.html { render action: "new" }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @news.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.update_attributes(params[:news])
-        format.html { redirect_to @news, notice: 'News was successfully updated.' }
+        format.html { redirect_to @news, :notice => 'News was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @news.errors, :status => :unprocessable_entity }
       end
     end
   end

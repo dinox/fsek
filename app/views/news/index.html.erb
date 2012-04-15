@@ -15,7 +15,7 @@
     <td><%= news.text %></td>
     <td><%= link_to 'Show', news %></td>
     <td><%= link_to 'Edit', edit_news_path(news) %></td>
-    <td><%= link_to 'Destroy', news, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', news, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
