@@ -27,9 +27,7 @@ class User < ActiveRecord::Base
 	#Methods :D	
 	def User.authenticate(username, password)
 		if user = find_by_username(username)
-			puts "We found user #{user.username}"
-			if BCrypt::Password.new(user.hashed_password) == BCrypt::Password.create(password)
-				puts "Authenticated"
+			if BCrypt::Password.new(user.hashed_password) == password
 				return user
 			end
 		end
