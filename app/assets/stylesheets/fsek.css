@@ -21,17 +21,19 @@ a:hover {
 
 /* views/layouts/application.html.erb */
 
-body {
+html, body {
     background-color: #DDD;
     margin: 0px;
     padding: 0px;
+    height: 100%;
 }
 
 div#main-container {
-    background-color: #FFF;
-    padding: 10px 20px;
-    margin: 0px auto 0px auto;
+    min-height: 100%;
     width: 800px;
+    background-color: #FFF;
+    padding: 0px 20px 0px 10px;
+    margin: 0px auto 0px auto;
     border-style: double;
     border-color: #BBB;
     border-width: 0px 6px 0px 6px;
