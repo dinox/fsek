@@ -18,6 +18,11 @@ a:hover {
     color: #000;
 }
 
+/* rails stuff */
+
+#notice {
+    background-color: #FFC473;
+}
 
 /* views/layouts/application.html.erb */
 
