@@ -1,13 +1,11 @@
 <% @news.each do |news| %>
     <div class="news" id="<%= news.title %>">
     <h2><%= news.title %></h2>
-    <p>
-    <%= news.text %>
-    </p>
+    <%= raw(markdown(news.text)) %>
     <ul>
     <li><%= link_to 'Visa', news %></li>
-    <li><%= link_to 'Redigera', edit_news_path(news) %></li>
-    <li><%= link_to 'Förinta', news, :confirm => 'Are you sure?', :method => :delete %></li>
+    <li><%= link_to 'Ändra', edit_news_path(news) %></li>
+    <li><%= link_to 'Förinta', news, :confirm => 'Är du säker?', :method => :delete %></li>
     </ul>
     </div>
 <% end %>

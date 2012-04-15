@@ -1,15 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @news.title %>
-</p>
+<h2><%= @news.title %></h2>
 
-<p>
-  <b>Text:</b>
-  <%= @news.text %>
-</p>
+<%= @news.text %>
 
+<br/>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<%= link_to 'Ändra', edit_news_path(@news) %> |
+<%= link_to 'Förinta', @news, :confirm => 'Är du säker?', :method => :delete %>
+<%= link_to 'Tillbaka', news_index_path %> |
