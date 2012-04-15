@@ -15,8 +15,10 @@ class User < ActiveRecord::Base
 	end
 
 	#Validations of the fields
-	validates :username, :presence => true, :uniqueness => true
+	validates :username, :email, :presence => true, :uniqueness => true
+	validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 	validates :password, :confirmation => true
+	validates :real_name, :presence => true
 	validate :password_must_be_present
 
 	#Methods :D	
