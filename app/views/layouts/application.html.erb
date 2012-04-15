@@ -12,16 +12,24 @@
       <a href="/"><h1>F-sektionen inom tlth</h1></a>
     </div>
 
-    <div id="main-menu">
+    <div id="top-menu">
       <ul>
         <li><a href="about:blank">Student</a></li>
         <li><a href="about:blank">Vill Studera</a></li>
         <li><a href="about:blank">Företag</a></li>
       </ul>
     </div>
-
-    <div id="main-content">
-      <%= yield %>
+    <div id="main-wrapper">
+      <div id="side-menu">
+        <ul>
+          <li><a href="about:blank">Student</a></li>
+          <li><a href="about:blank">Vill Studera</a></li>
+          <li><a href="about:blank">Företag</a></li>
+        </ul>
+      </div>
+      <div id="main-content">
+        <%= yield %>
+      </div>
     </div>
   </div>
 </body>
