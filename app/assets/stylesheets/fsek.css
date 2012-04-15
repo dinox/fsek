@@ -5,19 +5,26 @@
 
 #main-head h1 {
     font-family: georgia, times, serif;
+    font-size: 36pt;
+    font-variant: small-caps;
     text-align: center;
     color: #FF9400;
 }
 
-#main-menu ul {
-    padding: 0px;
+div#main-menu {
     border: 0px solid #FF9400;
     border-top-width: 2px;
     border-bottom-width: 2px;
 }
 
+#main-menu ul {
+    margin: 0px 0px;
+    padding: 10px 0px;
+}
+
 #main-menu li {
-    margin: 0px;
+    padding: 10px 0px;
+    font-size: 12pt;
     display: inline;
 }
 
@@ -26,6 +33,8 @@
 }
 
 #main-menu a {
+    padding: 10px 0px; 
+    font-size: 12pt;
     background-color: transparent;
 }
 
