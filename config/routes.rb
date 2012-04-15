@@ -1,4 +1,6 @@
 Fsek::Application.routes.draw do
+  resources :users
+
   resources :news
 
   # The priority is based upon order of creation:
