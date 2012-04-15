@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fsek</title>
+  <title>F-sektionen</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="main-container">
+    <div id="main-head">
+      <h1>F-sektionen</h1>
+    </div>
 
-<%= yield %>
+    <div id="main-menu">
+      <ul>
+        <li><a href="about:blank">Hej</a></li>
+        <li><a href="about:blank">Hopp</a></li>
+        <li><a href="about:blank">Min</a></li>
+        <li><a href="about:blank">Snopp</a></li>
+        <li><a href="about:blank">Kaffekopp</a></li>
+      </ul>
+    </div>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
 
 </body>
 </html>
