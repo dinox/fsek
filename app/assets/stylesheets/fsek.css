@@ -22,30 +22,25 @@ a:hover {
 /* views/layouts/application.html.erb */
 
 html, body {
-    background-color: #DDD;
     margin: 0px;
     padding: 0px;
     height: 100%;
 }
 
 div#main-container {
+    position: relative;
     min-height: 100%;
-    width: 800px;
     background-color: #FFF;
     padding: 0px 20px 0px 10px;
-    margin: 0px auto 0px auto;
-    border-style: double;
-    border-color: #BBB;
-    border-width: 0px 6px 0px 6px;
 }
 
 div#main-head h1 {
     margin: 0px 10px 10px 10px; 
     padding: 0px;
+    text-align: left;
     font-family: georgia, times, serif;
     font-size: 36pt;
     font-variant: small-caps;
-    text-align: center;
     color: #FF9400;
 }
 
@@ -53,45 +48,66 @@ div#main-head a:hover {
     text-decoration: none;
 }
 
-div#main-menu {
+div#top-menu {
     border: 0px solid #FF9400;
     border-top-width: 2px;
     border-bottom-width: 2px;
 }
 
-#main-menu ul {
+#top-menu ul {
     margin: 0px 0px;
     padding: 10px 0px;
 }
 
-#main-menu li {
+#top-menu li {
     padding: 10px 0px;
     font-size: 12pt;
     display: inline;
 }
 
-#main-menu li:hover {
+#top-menu li:hover {
     background-color: #FF9400;
 }
 
-#main-menu a {
+#top-menu a {
     padding: 10px 0px; 
     font-size: 12pt;
     background-color: transparent;
 }
 
-#main-menu a:link {
+#top-menu a:link {
     color: #FF9400;
     text-decoration: none;
 }
     
-#main-menu a:hover {
+#top-menu a:hover {
     color: #FFF;
 }
 
-#main-head h1 {
-    font-family: georgia, times, serif;
-    text-align: center;
-    color: #FF9400;
+div#main-wrapper {
+    position: relative;
+    padding-top: 20px;
 }
 
+div#main-content {
+    margin-top: -20px;
+    margin-right: 162px;
+}
+
+div#side-menu {
+    width: 100px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 0px 20px;
+    height: 100%;
+    border-left: 2px solid #FF9400;
+}
+
+#side-menu ul {
+    padding: 0px;
+}
+
+#side-menu li {
+    display: block;
+}
