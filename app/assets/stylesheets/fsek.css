@@ -3,6 +3,12 @@
     width: 800px;
 }
 
+#main-head h1 {
+    font-family: georgia, times, serif;
+    text-align: center;
+    color: #FF9400;
+}
+
 #main-menu ul {
     padding: 0px;
     border: 0px solid #FF9400;
@@ -38,5 +44,19 @@
     color: #FF9400;
 }
 
+/* views/news */
 
+.news h2 {
+    border: 0px solid #FF9400;
+    border-bottom-width: 2px;
+}
+
+.news p {
+    text-align: justify;
+}
+
+.news li {
+    display: inline;
+    font-weight: bold;
+}
 
