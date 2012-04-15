@@ -1,3 +1,26 @@
+/* general */
+
+a {
+    color: #000;
+}
+
+a:link {
+    text-decoration: none;
+    color: #FF9400;
+}
+
+a:visited {
+    color: #FF9400;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+
+/* views/layouts/application.html.erb */
+
 #main-container {
     margin: 0px auto 20px auto;
     width: 800px;
@@ -51,21 +74,5 @@ div#main-menu {
     font-family: georgia, times, serif;
     text-align: center;
     color: #FF9400;
-}
-
-/* views/news */
-
-.news h2 {
-    border: 0px solid #FF9400;
-    border-bottom-width: 2px;
-}
-
-.news p {
-    text-align: justify;
-}
-
-.news li {
-    display: inline;
-    font-weight: bold;
 }
 
