@@ -18,7 +18,7 @@ class AccessesControllerTest < ActionController::TestCase
 
   test "should create access" do
     assert_difference('Access.count') do
-      post :create, access: { string: @access.string }
+      post :create, access: { name: @access.name }
     end
 
     assert_redirected_to access_path(assigns(:access))
@@ -35,7 +35,7 @@ class AccessesControllerTest < ActionController::TestCase
   end
 
   test "should update access" do
-    put :update, id: @access, access: { string: @access.string }
+    put :update, id: @access, access: { name: @access.name }
     assert_redirected_to access_path(assigns(:access))
   end
 

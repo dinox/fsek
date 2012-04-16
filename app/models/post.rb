@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  attr_accessible :string, :string
+  attr_accessible :description, :title
 end

@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>String</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +10,7 @@
 
 <% @accesses.each do |access| %>
   <tr>
-    <td><%= access.string %></td>
+    <td><%= access.name %></td>
     <td><%= link_to 'Show', access %></td>
     <td><%= link_to 'Edit', edit_access_path(access) %></td>
     <td><%= link_to 'Destroy', access, confirm: 'Are you sure?', method: :delete %></td>
