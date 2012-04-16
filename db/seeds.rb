@@ -58,3 +58,8 @@ telefonnummer går att hitta under "Styrelsen" till vänster på hemsidan eller
 anslaget på SK's dörr.},
     :user_id => johan.id
 	)
+
+Access.delete_all
+Access.create(
+    :name => 'root'
+    )
