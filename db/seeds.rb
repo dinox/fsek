@@ -28,9 +28,9 @@ News.delete_all
 News.create(
 	:title => 'Valborg i Uppsala',
 	:text =>
-		"Även fast det senast påskafton snöade här i vårt kära Lund
+		"Även fast det senast *påskafton* snöade här i vårt kära Lund
 så är, tro det eller ej, våren på väg. Förutom solsken, blommor och bin kommer
-även Valborg med våren. Denna högtid firas traditionsenligt den 30 april för
+även **Valborg** med våren. Denna högtid firas traditionsenligt den 30 april för
 att hälsa våren välkommen genom att festa som as! Att festa som as görs bäst på
 bortaplan därför anordnas det liksom i fjol en resa till Uppsala över Valborg.
 Det studentikosa Uppsala erbjuder allt från fulsittning till forsränning under

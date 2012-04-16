@@ -1,4 +1,8 @@
 Fsek::Application.routes.draw do
+  resources :accesses
+
+  resources :posts
+
   resources :users
 
   resources :news
