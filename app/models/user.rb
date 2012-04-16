@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	#Relationships
+	has_many :news
+
 	#Validations of the fields
 	validates :username, :email, :presence => true, :uniqueness => true
 	validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
