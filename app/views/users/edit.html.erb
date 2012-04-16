@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Visa', @user %> |
+<%= link_to 'Förinta', @user, :confirm => 'Är du säker?', :method => 'delete' %> |
+<%= link_to 'Tillbaka', users_path %>
