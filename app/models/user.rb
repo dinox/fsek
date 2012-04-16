@@ -25,9 +25,11 @@ class User < ActiveRecord::Base
 	validate :password_must_be_present
 
 	#Methods :D	
-	def authenticate(username, password)
+	def User.authenticate(username, password)
 		if user = find_by_username(username)
-			if user.hashed_password == BCrypt::Password.create(password)
+			puts "We found user #{user.username}"
+			if BCrypt::Password.new(user.hashed_password) == BCrypt::Password.create(password)
+				puts "Authenticated"
 				return user
 			end
 		end
