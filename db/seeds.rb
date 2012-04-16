@@ -60,6 +60,13 @@ anslaget på SK's dörr.},
 	)
 
 Access.delete_all
-Access.create(
+root_a = Access.create(
     :name => 'root'
+    )
+
+Post.delete_all
+Post.create(
+    :title => 'sysop',
+    :description => 'We are sysop. Resistance is futile.',
+    :access_id => root_a.id
     )
