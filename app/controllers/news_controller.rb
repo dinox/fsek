@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+	skip_before_filter :authorize, :only => [:index, :show]
   # GET /news
   # GET /news.json
   def index
