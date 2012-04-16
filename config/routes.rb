@@ -1,9 +1,15 @@
 Fsek::Application.routes.draw do
+<<<<<<< HEAD
 	controller :sessions do 
 		get 'login' => :new
 		post 'login' => :create
 		delete 'logout' => :destroy
 	end
+=======
+  resources :accesses
+
+  resources :posts
+>>>>>>> b5f0a4f901596d8aa634c7896bd3cbe63e8285b2
 
   resources :users
 

@@ -1,5 +1,7 @@
 class News < ActiveRecord::Base
-  attr_accessible :text, :title
+  attr_accessible :text, :title, :user_id
 
-	has_one :user
+  belongs_to :user
+
+  validates :text, :title, :user_id, :presence => true
 end
