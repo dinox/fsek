@@ -2,5 +2,10 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @news %> |
-<%= link_to 'Back', news_index_path %>
+<br />
+
+<p class="news-controls">
+<%= link_to 'Visa', @news %> |
+<%= link_to 'Förinta', @news, :confirm => 'Är du säker?', :method => :delete %> |
+<%= link_to 'Tillbaka', news_index_path %>
+</p>
