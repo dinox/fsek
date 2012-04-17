@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :username %><br />
-  <%= f.email_field :username %></div>
+  <%= f.text_field :username %></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -16,7 +16,7 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.label :real_name %><br />
-  <%= f.email_field :real_name %></div>
+  <%= f.text_field :real_name %></div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
