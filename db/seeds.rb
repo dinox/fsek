@@ -12,16 +12,16 @@ linus = User.create(
     :username => 'linus',
     :real_name => 'Linus Hammarlund',
     :email => 'linus.snail@gmail.com',
-    :password => 'hej',
-    :password_confirmation => 'hej'
+    :password => 'hejhej',
+    :password_confirmation => 'hejhej'
     )
 
 johan = User.create(
     :username => 'jforberg',
     :real_name => 'Johan Förberg',
     :email => 'johan@forberg.se',
-    :password => 'hopp',
-    :password_confirmation => 'hopp'
+    :password => 'hopphopp',
+    :password_confirmation => 'hopphopp'
     )
 
 News.delete_all
