@@ -7,13 +7,16 @@
 
     <%= raw(markdown(news.text)) %>
     <p class="news-controls">
-    <%= link_to 'Visa', news %> | 
-    <%= link_to 'Ändra', edit_news_path(news) %> |  
-    <%= link_to 'Förinta', news, :confirm => 'Är du säker?', :method => :delete %>
+    <%= link_to 'Visa', news %> 
+    <% if can? :modify, News %>
+      |
+      <%= link_to 'Ändra', edit_news_path(news) %> |  
+      <%= link_to 'Förinta', news, :confirm => 'Är du säker?', :method => :delete %>
+    <% end %>
     </p>
   </div>
 <% end %>
 </table>
 
 <br />
-<h3><%= link_to 'Ny nyhet', new_news_path %></h3>
+<h3><%= link_to 'Ny nyhet', new_news_path if can? :create, News %></h3>

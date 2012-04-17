@@ -19,6 +19,7 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+  <% if @current_method == "new" %>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -27,10 +28,17 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div> 
+  <% end %>
   <div class="field">
     <%= f.label :real_name %><br />
     <%= f.text_field :real_name %>
   </div>
+  <% for role in Role.all %>
+    <div>
+      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+      <%= role.title %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

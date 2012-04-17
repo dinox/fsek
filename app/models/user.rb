@@ -6,12 +6,27 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :username, :email, :real_name, :password, 
-	:password_confirmation, :remember_me
+	:password_confirmation, :remember_me, :role_ids
 
+	#relations
 	has_many :news
+	has_and_belongs_to_many :roles
 
+	#extra validations outside devise
 	validates :username, :presence => true, :uniqueness => true
 	validates :real_name, :presence => true
+
+	#CanCan-authorization
+	def has_role? (role)
+		return !!self.roles.find_by_tag(role.to_s)
+	end
+	
+
+
+
+
+
+#OLD CODE DELETE WHEN LOGIN SYSTEM DONE
 =begin	
 	#Attributes
 	attr_reader :password

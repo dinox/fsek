@@ -16,8 +16,10 @@
       <ul>
         <li><%= link_to 'Nyheter', News %></li>
         <li><%= link_to 'Användare', User %></li>
-        <li><%= link_to 'Poster', Post %></li>
-        <li><%= link_to 'Accesser', Access %></li>
+        <li><%= link_to 'Poster', Role %></li>
+      </ul>
+      <ul>
+	<li><%= render 'devise/quicklinks/login_links' %></li>
       </ul>
     </div>
     <div id="main-wrapper">
