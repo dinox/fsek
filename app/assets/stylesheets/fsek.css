@@ -26,6 +26,10 @@ a:hover {
 
 /* views/layouts/application.html.erb */
 
+table.list {
+    width: 100%;
+}
+
 html, body {
     margin: 0px;
     padding: 0px;
