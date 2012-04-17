@@ -33,7 +33,6 @@ html, body {
 }
 
 div#main-container {
-    position: relative;
     min-height: 100%;
     background-color: #FFF;
     padding: 0px 20px 0px 10px;
@@ -95,6 +94,7 @@ div#main-wrapper {
 }
 
 div#main-content {
+    min-height: 100%;
     margin-top: -20px;
     margin-right: 162px;
 }
