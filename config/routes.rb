@@ -1,11 +1,6 @@
 Fsek::Application.routes.draw do
   devise_for :users
 
-	controller :sessions do 
-		get 'login' => :new
-		post 'login' => :create
-		delete 'logout' => :destroy
-	end
   resources :accesses
 
   resources :posts
