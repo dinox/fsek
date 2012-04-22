@@ -12,10 +12,6 @@ class Ability
     end
   end
 
-  def guest
-    can :read, :all
-  end
-
   def admin
     can :manage, :all
   end
