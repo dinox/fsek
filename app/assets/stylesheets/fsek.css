@@ -48,6 +48,12 @@ a:hover {
     background-color: #FFC473;
 }
 
+/* user in several views */
+
+.controls a {
+    font-weight: bold;
+}
+
 /* views/layouts/application.html.erb */
 
 table.list {

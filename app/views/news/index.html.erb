@@ -8,7 +8,7 @@
     <%= fmt_time(news.created_at) %></em></p>
 
     <%= raw(markdown(news.text)) %>
-    <p class="news-controls">
+    <p class="controls">
     <% if can? :modify, News %>
       <%= link_to 'Ändra', edit_news_path(news) %> |  
       <%= link_to 'Förinta', news, :confirm => 'Är du säker?', :method => :delete %>

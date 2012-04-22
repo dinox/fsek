@@ -1,27 +1,23 @@
-<h1>Listing roles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Tag</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Roller</h1>
 
 <% @roles.each do |role| %>
-  <tr>
-    <td><%= role.title %></td>
-    <td><%= role.tag %></td>
-    <td><%= role.description %></td>
-    <td><%= link_to 'Show', role %></td>
-    <td><%= link_to 'Edit', edit_role_path(role) %></td>
-    <td><%= link_to 'Destroy', role, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <h2 id="<%= id_escape role.tag %>">
+    <%= role.title %>
+  </h2>
+  <!-- <em><%= role.tag %></td></em> -->
+  <!-- <%= role.description %> -->
+  <ul>
+  <% role.users.each do |user| %>
+    <li><%= link_to user.real_name, user %></li>
+  <% end %>
+  </ul>
+  <p class="controls">
+  <%= link_to 'Visa', role %> |
+  <%= link_to 'Ändra', edit_role_path(role) %> |
+  <%= link_to 'Förinta', role, confirm: 'Är du säker?', method: :delete %>
+  </p>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Role', new_role_path %>
+<%= link_to 'Ny roll', new_role_path %>
