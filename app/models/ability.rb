@@ -12,11 +12,15 @@ class Ability
     end
   end
 
-=begin
-  def sysop
+  def guest
+    can :read, :all
+  end
+
+  def admin
     can :manage, :all
   end
 
+=begin
   def styrelse
   # can :manage, Info
   # can :manage, News

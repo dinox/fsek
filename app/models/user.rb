@@ -21,11 +21,6 @@ class User < ActiveRecord::Base
 		return !!self.roles.find_by_tag(role.to_s)
 	end
 	
-
-
-
-
-
 #OLD CODE DELETE WHEN LOGIN SYSTEM DONE
 =begin	
 	#Attributes

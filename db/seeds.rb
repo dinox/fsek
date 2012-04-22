@@ -11,7 +11,7 @@ Role.delete_all
 admin = Role.create(
     :description => 'Admin', 
     :tag => 'admin',
-    :title => 'Admin'
+    :title => 'Admin',
 )
 
 User.delete_all
@@ -20,14 +20,15 @@ root = User.create(
     :real_name => 'Charlie Root',
     :email => 'root@fsek.lth.se',
     :password => 'rootroot',
-    :password_confirmation => 'rootroot'
+    :password_confirmation => 'rootroot',
+    :role_ids => [admin.id],
 )
 linus = User.create(
     :username => 'linus',
     :real_name => 'Linus Hammarlund',
     :email => 'linus.snail@gmail.com',
     :password => 'hejhej',
-    :password_confirmation => 'hejhej'
+    :password_confirmation => 'hejhej',
 )
 
 johan = User.create(
@@ -35,7 +36,7 @@ johan = User.create(
     :real_name => 'Johan Förberg',
     :email => 'johan@forberg.se',
     :password => 'hopphopp',
-    :password_confirmation => 'hopphopp'
+    :password_confirmation => 'hopphopp',
 )
 
 News.delete_all
@@ -50,7 +51,7 @@ bortaplan därför anordnas det liksom i fjol en resa till Uppsala över Valborg
 Det studentikosa Uppsala erbjuder allt från fulsittning till forsränning under
 Valborg! Vi lämnar Lund den 29e april och reser hem igen den 1a maj. För
 anmälan och mer information kontakta:",
-    :user_id => linus.id
+    :user_id => linus.id,
 )
 
 News.create(
@@ -60,7 +61,7 @@ En chans för just dig att lära dig mer om hälsa och testa på nya roliga
 aktiviteter. Mellan den 17:e och den 23:e april erbjuder F-sektionens
 idrottsutskott sektionens medlemmar att prova på och utveckla sin hälsa genom
 ett flertal olika aktiviteter.},
-    :user_id => johan.id
+    :user_id => johan.id,
 )
 News.create(
 	:title => 'Störningar på hemsidan',
@@ -70,6 +71,6 @@ sektionens lokaler men förhoppnigsvis kommer detta endast att gälla begränsad
 tider.  Vid uthämtning av nycklar till F-bilen kontakta Björn Hansson,
 telefonnummer går att hitta under "Styrelsen" till vänster på hemsidan eller
 anslaget på SK's dörr.},
-    :user_id => johan.id
+    :user_id => johan.id,
 )
 
