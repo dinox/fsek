@@ -1,7 +1,9 @@
+<h1><%= @user.real_name %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Username:</b>
+  <b>Användarnamn:</b>
   <%= @user.username %>
 </p>
 
@@ -11,10 +13,16 @@
 </p>
 
 <p>
-  <b>Real name:</b>
-  <%= @user.real_name %>
+  <b>Roller:</b>
+  <ul>
+    <% @user.roles.each do |role| %>
+      <li><%= link_to role.title, role %>
+    <% end %>
+  </ul>
 </p>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p class="controls">
+<%= link_to 'Ändra', edit_user_path(@user) %> |
+<%= link_to 'Förinta', @user, confirm: 'Är du säker?', method: :delete %> |
+<%= link_to 'Tillbaka', users_path %>
+</p>

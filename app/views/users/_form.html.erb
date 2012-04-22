@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username, 'Användarnamn' %><br />
     <%= f.text_field :username %>
   </div>
   <div class="field">
@@ -21,25 +21,27 @@
   </div>
   <% if @current_method == "new" %>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, 'Lösenord' %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, 'Bekräfta lösenord' %><br />
     <%= f.password_field :password_confirmation %>
   </div> 
   <% end %>
   <div class="field">
-    <%= f.label :real_name %><br />
+    <%= f.label :real_name, 'Riktigt Namn' %><br />
     <%= f.text_field :real_name %>
   </div>
+  <p>Roller</p>
   <% for role in Role.all %>
     <div>
       <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
       <%= role.title %>
     </div>
   <% end %>
+  <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Uppdatera' %>
   </div>
 <% end %>
