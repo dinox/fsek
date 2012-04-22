@@ -1,12 +1,8 @@
 Fsek::Application.routes.draw do
   devise_for :users
 
-  resources :accesses
-
-  resources :posts
-
+  resources :roles
   resources :users
-
   resources :news
 
   # The priority is based upon order of creation:
