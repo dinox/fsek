@@ -1,5 +1,5 @@
 <% @news.each do |news| %>
-  <div class="news" id="<%= news.title %>">
+  <div class="news">
     <h2 id="<%= id_escape(news.title) %>">
     <%= link_to news.title, news %>
     </h2>
