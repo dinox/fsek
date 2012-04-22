@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:show]
   load_and_authorize_resource
   # GET /users
   # GET /users.json
