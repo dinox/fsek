@@ -48,6 +48,29 @@ johan = User.create(
 
 News.delete_all
 News.create(
+	:title => 'Markdown',
+	:text => %{*Markdown* är ett lite tuffare sätt att formatera text. Syftet
+med *Markdown* är att efterlikna vanliga mailkonversationer så mycket som 
+möjligt. Varför krångla till det?
+
+I Markdown kan man skriva **o-ordnade listor**:
+ * En
+ * Två 
+ * Två och en halv
+ * Tre
+
+**Ordnade listor:**
+ 1. Hej
+ 2. Hopp
+ 3. Jättesnopp
+ 
+Man kan även skriva vanliga hyperlänkar på ett finurligt sätt. 
+[Wikipedia](http://en.wikipedia.org/) är en hemsida där man kan lära sig 
+mycket, om man kommer igåg att ta innehållet med en stor nypa salt.},
+    :user_id => johan.id,
+)
+
+News.create(
 	:title => 'Valborg i Uppsala',
 	:text =>
 		"Även fast det senast *påskafton* snöade här i vårt kära Lund
@@ -80,27 +103,4 @@ telefonnummer går att hitta under "Styrelsen" till vänster på hemsidan eller
 anslaget på SK's dörr.},
     :user_id => root.id,
 )
-News.create(
-	:title => 'Markdown',
-	:text => %{*Markdown* är ett lite tuffare sätt att formatera text. Syftet
-med *Markdown* är att efterlikna vanliga mailkonversationer så mycket som 
-möjligt. Varför krångla till det?
-
-I Markdown kan man skriva **o-ordnade listor**:
- * En
- * Två 
- * Två och en halv
- * Tre
-
-**Ordnade listor:**
- 1. Hej
- 2. Hopp
- 3. Jättesnopp
- 
-Man kan även skriva vanliga hyperlänkar på ett finurligt sätt. 
-[Wikipedia](http://en.wikipedia.org/) är en hemsida där man kan lära sig 
-mycket, om man kommer igåg att ta innehållet med en stor nypa salt.},
-    :user_id => johan.id,
-)
-
 
