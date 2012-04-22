@@ -1,7 +1,31 @@
+/* @font-faces */
+/*
+ * @font-face {
+ *     font-family: charter;
+ *     src: url('/fonts/charter.ttf');
+ * }
+ */
 /* general */
+
+html {
+    font-family: helvetica, verdana, arial, sans-serif;
+}
+
+p {
+    color: #000;
+    font-family: inherit;
+    font-size: 11pt;
+}
 
 a {
     color: #000;
+    font-family: inherit;
+    font-size: 11pt;
+}
+
+h2 {
+    font-family: inherit;
+    font-weight: bold;
 }
 
 a:link {

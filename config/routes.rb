@@ -1,10 +1,6 @@
 Fsek::Application.routes.draw do
   resources :roles
 
-
-
-  resources :users
-
   resources :news
 
   devise_for :users, :skip => [:sessions]

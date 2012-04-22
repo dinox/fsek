@@ -1,25 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <title>F-sektionen</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
   <div id="main-container">
     <div id="main-head">
-      <a href="/"><h1>F-sektionen inom tlth</h1></a>
+      <a href="/"><h1>F-sektionen</h1></a>
     </div>
 
     <div id="top-menu">
       <ul>
         <li><%= link_to 'Nyheter', News %></li>
         <li><%= link_to 'Användare', User %></li>
-        <li><%= link_to 'Poster', Role %></li>
+        <li><!--%= link_to 'Poster', Role %--></li>
       </ul>
       <ul>
-	<li><%= render 'devise/quicklinks/login_links' %></li>
+        <li><%= render 'devise/quicklinks/login_links' %></li>
       </ul>
     </div>
     <div id="main-wrapper">
