@@ -1,0 +1,29 @@
+<%= form_for(@vecktor_notice) do |f| %>
+  <% if @vecktor_notice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vecktor_notice.errors.count, "error") %> prohibited this vecktor_notice from being saved:</h2>
+
+      <ul>
+      <% @vecktor_notice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </div>
+  <div class="field">
+    <%= f.label :signature %><br />
+    <%= f.text_field :signature %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

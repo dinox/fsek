@@ -1,0 +1,27 @@
+<h1>Listing vecktor_notices</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Signature</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vecktor_notices.each do |vecktor_notice| %>
+  <tr>
+    <td><%= vecktor_notice.title %></td>
+    <td><%= vecktor_notice.text %></td>
+    <td><%= vecktor_notice.signature %></td>
+    <td><%= link_to 'Show', vecktor_notice %></td>
+    <td><%= link_to 'Edit', edit_vecktor_notice_path(vecktor_notice) %></td>
+    <td><%= link_to 'Destroy', vecktor_notice, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vecktor notice', new_vecktor_notice_path %>
