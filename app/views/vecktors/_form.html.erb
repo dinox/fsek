@@ -1,0 +1,33 @@
+<%= form_for(@vecktor) do |f| %>
+  <% if @vecktor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vecktor.errors.count, "error") %> prohibited this vecktor from being saved:</h2>
+
+      <ul>
+      <% @vecktor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :issue %><br />
+    <%= f.text_field :issue %>
+  </div>
+  <div class="field">
+    <%= f.label :editor %><br />
+    <%= f.text_field :editor %>
+  </div>
+  <div class="field">
+    <%= f.label :responsible_publisher %><br />
+    <%= f.text_field :responsible_publisher %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

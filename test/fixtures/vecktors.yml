@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 
+  issue: 
+  editor: MyString
+  responsible_publisher: MyString
+
+two:
+  year: 
+  issue: 
+  editor: MyString
+  responsible_publisher: MyString

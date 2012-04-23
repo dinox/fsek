@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @vecktor.year %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%= @vecktor.issue %>
+</p>
+
+<p>
+  <b>Editor:</b>
+  <%= @vecktor.editor %>
+</p>
+
+<p>
+  <b>Responsible publisher:</b>
+  <%= @vecktor.responsible_publisher %>
+</p>
+
+
+<%= link_to 'Edit', edit_vecktor_path(@vecktor) %> |
+<%= link_to 'Back', vecktors_path %>

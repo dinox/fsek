@@ -1,0 +1,29 @@
+<h1>Listing vecktors</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Issue</th>
+    <th>Editor</th>
+    <th>Responsible publisher</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vecktors.each do |vecktor| %>
+  <tr>
+    <td><%= vecktor.year %></td>
+    <td><%= vecktor.issue %></td>
+    <td><%= vecktor.editor %></td>
+    <td><%= vecktor.responsible_publisher %></td>
+    <td><%= link_to 'Show', vecktor %></td>
+    <td><%= link_to 'Edit', edit_vecktor_path(vecktor) %></td>
+    <td><%= link_to 'Destroy', vecktor, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vecktor', new_vecktor_path %>
