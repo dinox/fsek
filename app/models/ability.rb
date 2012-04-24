@@ -16,6 +16,19 @@ class Ability
     can :manage, :all
   end
 
+  def nobody
+    can :read, :all
+    can :update, User, :id => @user.id
+  end
+
+  def cafe
+    can :manage, :cafe
+    can :update, News, :user_id => @user.id
+  end
+
+  def vicecafe
+    cafe
+  end
 =begin
   def styrelse
   # can :manage, Info

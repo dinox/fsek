@@ -8,8 +8,10 @@
 <%= raw(markdown(@news.text)) %>
 
 <p class="controls">
-<% if can? :modify, News %>
+<% if can? :update, @news %>
   <%= link_to 'Ändra', edit_news_path(@news) %> |
+<% end %>
+<% if can? :destroy, @news %>
   <%= link_to 'Förinta', @news, :confirm => 'Är du säker?', :method => :delete %> |
 <% end %>
 <%= link_to 'Tillbaka', news_index_path %>
