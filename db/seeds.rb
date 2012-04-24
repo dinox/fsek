@@ -18,6 +18,17 @@ nobody = Role.create(
     :tag => 'nobody',
     :title => 'Pöbel',
 )
+cafem = Role.create(
+    :description => 'Cafémästaren bossar över Hilbert Café. Man har hand om bokföring, inköp av bröd och varor, håller kontakt med leverantörer. Som Cafémästare sitter man till skillnad från många andra funktionärer bara i ett halvår, detta på grund att att man väljs in som vice Cafémästare i ett halvår först för att sedan automagiskt bli Cafémästare efter detta.',
+    :tag => 'cafe',
+    :title => 'Cafémästare',
+)
+
+vcafem = Role.create(
+    :title => 'Vice Cafémästare',
+    :tag => 'vicecafe',
+    :description => 'Cafémästarens slav.',
+)
 
 User.delete_all
 root = User.create(
@@ -34,7 +45,7 @@ linus = User.create(
     :email => 'linus.snail@gmail.com',
     :password => 'hejhej',
     :password_confirmation => 'hejhej',
-    :role_ids => [nobody.id],
+    :role_ids => [nobody.id, cafem.id],
 )
 
 johan = User.create(
