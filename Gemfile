@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'maruku'
 gem 'devise'
 gem 'cancan'
+gem 'rails-settings-cached'
 
 # Gems used only for assets and not required
 # in production environments by default.
