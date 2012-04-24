@@ -1,6 +1,4 @@
 Fsek::Application.routes.draw do
-  resources :vecktor_notices
-
   resources :vecktors
 
   resources :roles
