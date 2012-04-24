@@ -4,7 +4,7 @@ class CreateVecktors < ActiveRecord::Migration
       t.integer :year
       t.integer :issue
       t.string :editor
-      t.string :responsible_publisher
+      t.string :publisher
 
       t.timestamps
     end
