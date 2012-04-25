@@ -16,29 +16,29 @@ class Ability
     can :manage, :all
   end
 
-  def nobody
+  def f_are
     can :read, :all
     can :update, User, :id => @user.id
   end
 
-  def cafe
-    can :manage, :cafe
+  def styrelse
+    can :manage, Info
+    can :create, News
     can :update, News, :user_id => @user.id
+  end
+
+  def cafe
+    styrelse
+    can :manage, :cafe
   end
 
   def vicecafe
     cafe
   end
-=begin
-  def styrelse
-  # can :manage, Info
-  # can :manage, News
-  end
 
-  def cafe
-    styrelse #inherit styrelse perm
-  # can :manage, Cafe
+  def sanning
+    styrelse
+    can :manage, News
+    can :manage, Vecktor
   end
-=end
-
 end
