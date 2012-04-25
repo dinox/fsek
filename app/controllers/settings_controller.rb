@@ -1,8 +1,10 @@
 class SettingsController < ApplicationController
+#  skip_before_filter
+  load_and_authorize_resource
   # GET /settings
   # GET /settings.json
   def index
-    @settings = Setting.all
+    @settings = Setting.find :all
 
     respond_to do |format|
       format.html # index.html.erb
