@@ -4,14 +4,14 @@ class SettingsController < ApplicationController
   # GET /settings
   # GET /settings.json
   def index
-    @settings = Setting.find :all
+    @settings = Setting.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @settings }
     end
   end
-
+=begin
   # GET /settings/1
   # GET /settings/1.json
   def show
@@ -82,4 +82,5 @@ class SettingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 end

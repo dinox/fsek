@@ -1,29 +1,14 @@
-<h1>Listing settings</h1>
+<h1>Settings</h1>
 
-<table>
+<table class="settings">
+<% @settings.each do |key, value| %>
   <tr>
-    <th>Var</th>
-    <th>Value</th>
-    <th>Thing</th>
-    <th>Thing type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @settings.each do |setting| %>
-  <tr>
-    <td><%= setting.var %></td>
-    <td><%= setting.value %></td>
-    <td><%= setting.thing_id %></td>
-    <td><%= setting.thing_type %></td>
-    <td><%= link_to 'Show', setting %></td>
-    <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
-    <td><%= link_to 'Destroy', setting, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= key.to_sym.inspect %></td>
+    <td> =&gt;  </td>
+    <td><%= value.inspect %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Setting', new_setting_path %>
