@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
+<h1>Vecktorn &mdash; nr. <%= @vecktor.issue %> <%= @vecktor.date.year %>
+
   <b>Year:</b>
   <%= @vecktor.year %>
 </p>
