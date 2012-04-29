@@ -16,6 +16,7 @@ class VecktorsController < ApplicationController
   # GET /vecktors/1.json
   def show
     @vecktor = Vecktor.find(params[:id])
+#    @notices = VecktorNotice.where(:vecktor_id => @vecktor.id)
 
     respond_to do |format|
       format.html # show.html.erb

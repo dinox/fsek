@@ -33,7 +33,7 @@ class Vecktor < ActiveRecord::Base
 end
 
 class VecktorNotice < ActiveRecord::Base
-  attr_accessible :signature, :text, :title, :order
+  attr_accessible :signature, :text, :title, :vecktor_id, :order_
 
-  has_one :user, :as => :author
+  belongs_to :author, :class_name => :User
 end

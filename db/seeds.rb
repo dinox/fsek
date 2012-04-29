@@ -136,4 +136,55 @@ anslaget på SK's dörr.},
 )
 
 Vecktor.delete_all
+vecktor = Vecktor.create
+VecktorNotice.create(
+    :vecktor_id => vecktor.id, 
+    :title => 'F-bilen sjuk', 
+    :text => 'F-bilen är sedan ett tag tillbaka lite krasslig, och går 
+därför inte att boka.
+
+Jag och bilen får be att återkomma då den 
+känner sig bättre.', 
+    :signature => 'Ulf Hörndahl, Bilförman', 
+    :order_ => 1,
+)
+VecktorNotice.create(
+    :vecktor_id => vecktor.id, 
+    :title => 'Seminars at MAX-lab', 
+    :text => 'Jean Susini from European Synchrotron Radiation Facility (ESRF),
+Grenoble, will hold two seminars at MAX-lab in May. Both will take place in
+Siberia at Ole Römers väg 1, Lund, at 13:00-14:30.
+
+7 May 13:00-14:30: The ESRF Upgrade: Challenges for the Instrumentation
+Programme
+
+8 May 13:00-14:30: High-Resolution Synchrotron-Based X-Ray
+Imaging: Trends and OpportunitiesAll are invited.
+
+MAX IV Laboratory (via Karin Lilja)', 
+    :signature => 'Annika Hansdotter, inst. Fysik', 
+    :order_ => 22
+)
+VecktorNotice.create(
+    :vecktor_id => vecktor.id,
+    :title => 'Alkoholhets?', 
+    :text => 'Känner du att studentlivet kretsar mycket kring
+alkohol?
+
+Skulle det vara möjligt att ha en nollning utan
+alkohol?
+
+Behövs det fler alkoholfria aktiviteter för
+studenter?
+
+Är du också intresserad av att diskutera de normer och
+attityder som råder kring alkohol i studentlivet och på LTH? Teknologkåren
+startar nu en alkoholpolitisk grupp för alla studenter på LTH som är
+intresserade av dessa frågor. Syftet är att skapa ett forum för att
+diskutera alkoholfrågor och arbeta för att skapa ett mer inkluderande
+studentliv. Låter det spännande? Hör av dig till Teresia Olsson,
+vkos@tlth.se.', 
+    :signature => 'Teresia Olsson, V. Kårordförande',
+    :order_ => 19,
+)
 
