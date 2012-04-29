@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <b>Year:</b>
-  <%= @vecktor.year %>
+<h1>Vecktorn, <%= @vecktor.date %></h1>
+<p>Utgiven av F-sektionen inom TLTH. </p>
+<p>Redaktör: 
+  <%= @vecktor.editor %>
 </p>
-
-<p>
-  <b>Issue:</b>
+<p>Ansvarig Utgivare:
+  <%= @vecktor.publisher %>
+<p>Årgång:
+  <%= @vecktor.year %>,
+   Nummer: 
   <%= @vecktor.issue %>
 </p>
 
-<p>
-  <b>Editor:</b>
-  <%= @vecktor.editor %>
-</p>
+<% @vecktor.notices.each do |notice| %>
+  <h2><%= notice.title %></h2>
+  <%= raw(markdown notice.text) %>
+  <p><em><%= notice.signature %></em></p>
+<% end %>
 
-<p>
-  <b>Responsible publisher:</b>
-  <%= @vecktor.responsible_publisher %>
-</p>
-
-
-<%= link_to 'Edit', edit_vecktor_path(@vecktor) %> |
-<%= link_to 'Back', vecktors_path %>
