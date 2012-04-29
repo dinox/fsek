@@ -38,6 +38,8 @@ root = User.create(
     :password => 'rootroot',
     :password_confirmation => 'rootroot',
     :role_ids => [admin.id],
+    :year => '1961',
+    :program => :f,
 )
 linus = User.create(
     :username => 'linus',
@@ -46,6 +48,8 @@ linus = User.create(
     :password => 'hejhej',
     :password_confirmation => 'hejhej',
     :role_ids => [nobody.id, cafem.id],
+    :year => 2010,
+    :program => :pi,
 )
 
 johan = User.create(
@@ -55,6 +59,8 @@ johan = User.create(
     :password => 'hopphopp',
     :password_confirmation => 'hopphopp',
     :role_ids => [nobody.id],
+    :year => 2010,
+    :program => :f,
 )
 bjorn = User.create(
     :username => 'bhansson',
@@ -63,6 +69,8 @@ bjorn = User.create(
     :password => 'wahwah',
     :password_confirmation => 'wahwah',
     :role_ids => [nobody.id],
+    :year => 2009,
+    :program => :f,
 )
 Setting.delete_all
 Setting[:'vecktor.first_year'] = 1992
@@ -126,4 +134,6 @@ telefonnummer går att hitta under "Styrelsen" till vänster på hemsidan eller
 anslaget på SK's dörr.},
     :user_id => root.id,
 )
+
+Vecktor.delete_all
 

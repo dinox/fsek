@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429211718) do
+ActiveRecord::Schema.define(:version => 20120429214255) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20120429211718) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "encrypted_password",     :default => "", :null => false
+    t.integer  "year"
+    t.string   "program"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

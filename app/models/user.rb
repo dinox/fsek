@@ -1,25 +1,38 @@
 class User < ActiveRecord::Base
-	# Include default devise modules. Others available are:
-	# :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :trackable, :validatable
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-	# Setup accessible (or protected) attributes for your model
-	attr_accessible :username, :email, :real_name, :password, 
-	:password_confirmation, :remember_me, :role_ids
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :username, :email, :real_name, :password, 
+                  :password_confirmation, :remember_me, :role_ids, :year, 
+                  :program
 
-	#relations
-	has_many :news
-	has_and_belongs_to_many :roles
+  before_save :default_values
 
-	#extra validations outside devise
-	validates :username, :presence => true, :uniqueness => true
-	validates :real_name, :presence => true
+  #relations
+  has_many :news
+  has_and_belongs_to_many :roles
 
-	#CanCan-authorization
-	def has_role? (role)
-		return !!self.roles.find_by_tag(role.to_s)
-	end
+  #extra validations outside devise
+  validates :username, :presence => true, :uniqueness => true
+  validates :real_name, :presence => true
+
+  def default_values
+    self.year    ||= Time.now.year
+    self.program ||= :f
+  end
+
+  #CanCan-authorization
+  def has_role? (role)
+    return !!self.roles.find_by_tag(role.to_s)
+  end
+   
+  def to_s
+    '%s %s%02d' % [self.real_name, self.program.capitalize, self.year % 100]
+    # Printf-syntax. Jag älskar den!
+  end
 	
 #OLD CODE DELETE WHEN LOGIN SYSTEM DONE
 =begin	
