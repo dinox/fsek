@@ -6,8 +6,8 @@ class Vecktor < ActiveRecord::Base
   attr_accessible :issue, :year, :date
 
   has_many :vecktor_notices
-  belongs_to :editor, :class_name => :user
-  belongs_to :publisher, :class_name => :user
+  belongs_to :editor, :class_name => :User
+  belongs_to :publisher, :class_name => :User
 
   alias :notices :vecktor_notices
 
@@ -15,8 +15,8 @@ class Vecktor < ActiveRecord::Base
 
   def default_values
     self.date      ||= Time.now.to_date # Vi bryr oss inte om klockslaget.
-    self.editor    ||= Vecktor.setting :editor
-    self.publisher ||= Vecktor.setting :publisher
+    self.editor    ||= User.find(Vecktor.setting :editor)
+    self.publisher ||= User.find(Vecktor.setting :publisher)
     self.year      ||= self.date.year() - Vecktor.setting(:first_year)
     last_issue = Vecktor.find :first, :order => 'date desc, issue desc'
     if last_issue.nil? or last_issue.year != self.year
@@ -25,6 +25,10 @@ class Vecktor < ActiveRecord::Base
       this_issue = last_issue.issue + 1
     end
     self.issue ||= this_issue
+  end
+
+  def to_s
+    # Magi här
   end
 end
 

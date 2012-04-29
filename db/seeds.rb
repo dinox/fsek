@@ -7,11 +7,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
-Setting.delete_all
-Setting[:'vecktor.first_year'] = 1992
-Setting[:'vecktor.editor']     = 'Johan Förberg F10'
-Setting[:'vecktor.publisher']  = 'Björn Hansson F09'
-
 Role.delete_all
 admin = Role.create(
     :description => 'Admin', 
@@ -61,6 +56,18 @@ johan = User.create(
     :password_confirmation => 'hopphopp',
     :role_ids => [nobody.id],
 )
+bjorn = User.create(
+    :username => 'bhansson',
+    :real_name => 'Björn Hansson',
+    :email => 'ordf@fsek.lth.se',
+    :password => 'wahwah',
+    :password_confirmation => 'wahwah',
+    :role_ids => [nobody.id],
+)
+Setting.delete_all
+Setting[:'vecktor.first_year'] = 1992
+Setting[:'vecktor.editor']     = johan.id
+Setting[:'vecktor.publisher']  = bjorn.id
 
 News.delete_all
 News.create(
