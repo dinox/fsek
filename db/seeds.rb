@@ -7,6 +7,11 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
+Setting.delete_all
+Setting[:'vecktor.first_year'] = 1992
+Setting[:'vecktor.editor']     = 'Johan Förberg F10'
+Setting[:'vecktor.publisher']  = 'Björn Hansson F09'
+
 Role.delete_all
 admin = Role.create(
     :description => 'Admin', 
