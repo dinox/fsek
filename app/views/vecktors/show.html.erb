@@ -5,10 +5,11 @@
 <h1>Vecktorn, <%= @vecktor.date %></h1>
 <p>Utgiven av F-sektionen inom TLTH. </p>
 <p>Redaktör: 
-  <%= @vecktor.editor %>
+  <%= link_to @vecktor.editor, @vecktor.editor %>
 </p>
 <p>Ansvarig Utgivare:
-  <%= @vecktor.publisher %>
+  <%= link_to @vecktor.publisher, @vecktor.publisher %>
+</p>
 <p>Årgång:
   <%= @vecktor.year %>,
    Nummer: 
