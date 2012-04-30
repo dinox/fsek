@@ -14,7 +14,7 @@
   </p>
 <% end %>
 
-<% if can? :update %>
+<% if can? :update, @page %>
   <%= link_to 'Ändra', edit_page_path(@page) %>
 <% end %>
 
