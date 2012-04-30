@@ -1,0 +1,22 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= @page.title %></h1>
+<p>
+  <i>Författare:
+  <%= link_to @page.original_author, @page.original_author %></i>
+</p>
+<% if @page.original_author != @page.recent_author %>
+  <p>
+    <i>Senast ändrad av:
+    <%= link_to @page.recent_author, @page.recent_author %></i>
+  </p>
+<% end %>
+
+<% if can? :update %>
+  <%= link_to 'Ändra', edit_page_path(@page) %>
+<% end %>
+
+<%= raw(markdown(@page.content)) %>
+

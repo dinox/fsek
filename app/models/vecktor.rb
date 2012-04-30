@@ -28,6 +28,10 @@ class Vecktor < ActiveRecord::Base
   end
 
   def to_s
+    "Vecktorn, #{date}"
+  end
+
+  def plain_text
     # Magi här
   end
 end

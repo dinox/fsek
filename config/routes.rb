@@ -1,4 +1,6 @@
 Fsek::Application.routes.draw do
+  resources :pages
+
   resources :settings
   resources :vecktors
   resources :roles

@@ -13,23 +13,31 @@ admin = Role.create(
     :tag => 'admin',
     :title => 'Admin',
 )
-nobody = Role.create(
-    :description => 'Vem som helst',
-    :tag => 'nobody',
-    :title => 'Pöbel',
+f_are = Role.create(
+    :description => 'Medlem i F-sektionen',
+    :tag => 'f_are',
+    :title => 'F-are',
+)
+sanning = Role.create(
+    :description => 'Ansvarar för informationsspridningen på sektionen.',
+    :tag => 'sanning',
+    :title => 'Sanningsminister',
 )
 cafem = Role.create(
     :description => 'Cafémästaren bossar över Hilbert Café. Man har hand om bokföring, inköp av bröd och varor, håller kontakt med leverantörer. Som Cafémästare sitter man till skillnad från många andra funktionärer bara i ett halvår, detta på grund att att man väljs in som vice Cafémästare i ett halvår först för att sedan automagiskt bli Cafémästare efter detta.',
     :tag => 'cafe',
     :title => 'Cafémästare',
 )
-
 vcafem = Role.create(
     :title => 'Vice Cafémästare',
     :tag => 'vicecafe',
     :description => 'Cafémästarens slav.',
 )
-
+ordf = Role.create(
+    :title => 'Ordförande',
+    :tag => 'ordf',
+    :description => 'Makt & Respekt',
+)
 User.delete_all
 root = User.create(
     :username => 'root',
@@ -47,18 +55,17 @@ linus = User.create(
     :email => 'linus.snail@gmail.com',
     :password => 'hejhej',
     :password_confirmation => 'hejhej',
-    :role_ids => [nobody.id, cafem.id],
+    :role_ids => [f_are.id, cafem.id],
     :year => 2010,
     :program => :pi,
 )
-
 johan = User.create(
     :username => 'jforberg',
     :real_name => 'Johan Förberg',
     :email => 'johan@forberg.se',
     :password => 'hopphopp',
     :password_confirmation => 'hopphopp',
-    :role_ids => [nobody.id],
+    :role_ids => [f_are.id, sanning.id],
     :year => 2010,
     :program => :f,
 )
@@ -68,7 +75,7 @@ bjorn = User.create(
     :email => 'ordf@fsek.lth.se',
     :password => 'wahwah',
     :password_confirmation => 'wahwah',
-    :role_ids => [nobody.id],
+    :role_ids => [f_are.id, ordf.id],
     :year => 2009,
     :program => :f,
 )
