@@ -1,2 +1,24 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+# F-sektionen
+
+
+## Modeller
+
+### News
+
+Representerar en nyhet på förstasidan. Hemsidans rot pekar på news#index.
+
+Nyheter skrivs i Markdown, ett märkspråk som är enkelt att läsa och skriva.
+
+### Vecktor
+
+F-sektionens nyhetsbrev. Vecktornotisens modell ligger inbakad i Vecktorns 
+källkodsfil.
+
+**Notera**: Fältet som anger i vilken ordning notiserna ska visas heter 
+*order_* eftersom *order* är ett nyckelord i MySQL, och en instansmetod i 
+ActiveRecord.
+
+### Page
+
+En statisk sida lagrad i databasen. På sikt bör sidorna ägas av utskott och 
+det bör finnas möjlighet att rutta dem på namn istället för id-nummer.
