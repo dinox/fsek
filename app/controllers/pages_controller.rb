@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:show]
+  load_and_authorize_resource
   # GET /pages
   # GET /pages.json
   def index
