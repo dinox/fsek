@@ -4,7 +4,7 @@ class VecktorsController < ApplicationController
   # GET /vecktors
   # GET /vecktors.json
   def index
-    @vecktors = Vecktor.all
+    @vecktors = Vecktor.find :all, :conditions => 'published = 1'
 
     respond_to do |format|
       format.html # index.html.erb

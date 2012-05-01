@@ -3,16 +3,25 @@ require 'fsek_settings'
 class Vecktor < ActiveRecord::Base
   include FsekSettings
 
-  attr_accessible :issue, :year, :date, :published
+  attr_accessible :date
+  attr_reader :year, :issue
 
   has_many :vecktor_notices
   belongs_to :editor, :class_name => :User
   belongs_to :publisher, :class_name => :User
 
   alias :notices    :vecktor_notices
-  alias :published? :published
+  #alias :published? :published
 
   before_save :default_values # Kallback innan saker kommittas till databasen
+ 
+  def published?
+    !! @published # Typkast till true / false.
+  end
+
+  def publish
+    @published = true
+  end
 
   def default_values
     self.date      ||= Time.now.to_date # Vi bryr oss inte om klockslaget.
@@ -41,4 +50,13 @@ class VecktorNotice < ActiveRecord::Base
   attr_accessible :signature, :text, :title, :vecktor_id, :order_
 
   belongs_to :author, :class_name => :User
+
+  # :author kan vara nil. Detta tolkas som att Sanningsministern kopierat 
+  # notisen direkt ur ett mail.
+
+  before_save :default_values 
+
+  def default_values
+    self.signature ||= self.author.to_s
+  end
 end

@@ -144,6 +144,8 @@ anslaget på SK's dörr.},
 
 Vecktor.delete_all
 vecktor = Vecktor.create
+vecktor.publish
+vecktor.save
 VecktorNotice.create(
     :vecktor_id => vecktor.id, 
     :title => 'F-bilen sjuk', 
