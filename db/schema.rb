@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430132415) do
+ActiveRecord::Schema.define(:version => 20120501135644) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(:version => 20120430132415) do
     t.text     "content"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "access_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -97,12 +89,13 @@ ActiveRecord::Schema.define(:version => 20120430132415) do
 
   create_table "vecktors", :force => true do |t|
     t.integer  "issue"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.date     "date"
     t.integer  "year"
     t.integer  "editor_id"
     t.integer  "publisher_id"
+    t.boolean  "published",    :default => false
   end
 
 end
