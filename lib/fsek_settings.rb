@@ -19,17 +19,18 @@ module FsekSettings
       # * a symbol to get the corresponding value for
       # Setting a setting to nil destroys it.
       
+      
+
       class_name = self.new.class.to_s.downcase # What is the name of the class
-                                                # that mixes me in?
-      begin         
-        var.each do |key, value| # fail here if var is not hash-like.
+      if var.respond_to? :each_key              # That mixes me in?
+        var.each do |key, value|
           if value.nil?
             Setting.destroy "#{class_name}.#{key}"
           else
             Setting["#{class_name}.#{key}"] = value
           end
-        end
-      rescue NoMethodError # var is probably just a setting key.
+        end 
+      else
         Setting["#{class_name}.#{var}"]
       end
     end
