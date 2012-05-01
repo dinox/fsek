@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                   :password_confirmation, :remember_me, :role_ids, :year, 
                   :program
 
-  before_save :default_values
+  before_create :default_values # Krok som kallas innan saker creatas.
 
   #relations
   has_many :news

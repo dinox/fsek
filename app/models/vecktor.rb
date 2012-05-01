@@ -4,23 +4,30 @@ class Vecktor < ActiveRecord::Base
   include FsekSettings
 
   attr_accessible :date
-  attr_reader :year, :issue
+#  attr_reader :year, :issue
 
   has_many :vecktor_notices
-  belongs_to :editor, :class_name => :User
+  belongs_to :editor,    :class_name => :User
   belongs_to :publisher, :class_name => :User
 
   alias :notices    :vecktor_notices
   #alias :published? :published
 
   before_save :default_values # Kallback innan saker kommittas till databasen
- 
-  def published?
-    !! @published # Typkast till true / false.
+  
+  def published
+    !! self[:published] # Typkast till booleskt värde.
   end
 
+  # Gör attributet privat, typ.
+  private 
+  def published= val
+    self[:published] = val
+  end 
+  public
+
   def publish
-    @published = true
+    self.published = true
   end
 
   def default_values
@@ -28,13 +35,14 @@ class Vecktor < ActiveRecord::Base
     self.editor    ||= User.find(Vecktor.setting :editor)
     self.publisher ||= User.find(Vecktor.setting :publisher)
     self.year      ||= self.date.year() - Vecktor.setting(:first_year)
-    last_issue = Vecktor.find :first, :order => 'date desc, issue desc'
-    if last_issue.nil? or last_issue.year != self.year
-      this_issue = 1
-    else
-      this_issue = last_issue.issue + 1
-    end
-    self.issue ||= this_issue
+    if self.issue.nil?
+      last_issue = Vecktor.first :order => 'date desc, issue desc'
+      if last_issue.nil? or last_issue.year != self.year
+        self.issue = 1
+      else
+        self.issue = last_issue.issue + 1
+      end
+   end
   end
 
   def to_s

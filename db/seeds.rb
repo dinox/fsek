@@ -24,7 +24,11 @@ sanning = Role.create(
     :title => 'Sanningsminister',
 )
 cafem = Role.create(
-    :description => 'Cafémästaren bossar över Hilbert Café. Man har hand om bokföring, inköp av bröd och varor, håller kontakt med leverantörer. Som Cafémästare sitter man till skillnad från många andra funktionärer bara i ett halvår, detta på grund att att man väljs in som vice Cafémästare i ett halvår först för att sedan automagiskt bli Cafémästare efter detta.',
+    :description => 'Cafémästaren bossar över Hilbert Café. Man har hand om
+bokföring, inköp av bröd och varor, håller kontakt med leverantörer. Som
+Cafémästare sitter man till skillnad från många andra funktionärer bara i
+ett halvår, detta på grund att att man väljs in som vice Cafémästare i ett
+halvår först för att sedan automagiskt bli Cafémästare efter detta.',
     :tag => 'cafe',
     :title => 'Cafémästare',
 )
@@ -197,3 +201,48 @@ vkos@tlth.se.',
     :order_ => 19,
 )
 
+Page.delete_all
+Page.create(
+    :title => 'Sanningsministeriet',
+    :original_author_id => johan.id,
+    :content => '**Har du något F-uffens för dig? Kom till oss i
+Sanningsministeriet så marknadsför vi det!** Vi ansvarar nämligen för en samlad
+och strukturerad informationsspridning på sektionen. Tillsammans ser vi till
+att du vet allt som händer på sektionen. Anslagstavlorna, hemsidan, bloggen och
+vonTänen är vår spelplan. Kom ihåg: Skvallercrew ser dig.
+
+## Vecktorn 
+Sent på måndagkvällen i varje läsvecka kommer vecktorn ut via mail
+till sektionens medlemmar. Vecktorn är ett nyhetsblad där bland annat
+sektionens utskott och medlemmar kan skicka in notiser. Om du vill få någonting
+publicerat i vecktorn är det bara att maila din notis till Sanningsministern på
+sm@fsek.lth.se senast klockan 17 på måndagen. Vecktorn finns även uppsatt på
+Sanningsministeriets anslagstavla.  Anslagstavlorna I mattehuset har
+F-sektionen tillgång till ett antal anslagstavlor för annonsering av vår
+verksamhet. På anslagstavlan framför Hilbert Café kan man få en överblick i vad
+som är aktuellt på F för tillfället samt vad som händer just idag. För att få
+mer information kan man titta på anslagstavlorna i korridoren utan för
+Hilbertrummet. Där har varje utskott sin egna tavla där lite mer djupgående
+information om olika aktiviteter finns att tillgå.
+
+## Hemsidan 
+Om du skickar in en notis om någonting som händer på F till vecktorn
+läggs det även upp som en nyhet på hemsidan och som ett event i kalendariet.
+Vill du bara ha någonting upplagt på hemsidan är det bara att maila det till
+Sanningsministern.  Sektionsfotograferna tillhör sannings­ministeriet och ser
+till att massvis med bra bilder från olika F-aktiviteter kan skådas i
+sektionens bildarkiv som nås om man är inloggad på hemsidan.  Fbloggen
+F-sektionens fantastiska blogg finns påblogg.fsek.lth.se. Maila gärna
+skvallercrew@fsek.lth.se om du har ett inlägg till bloggen eller några allmäna
+önskemål.
+
+## von Tänen - F-sektionens egen tidning 
+Varje läsperiod ger vi ut ett fantastiskt
+nummer av vår sektionstidning med det inte fullt så otippade namnet von Tänen.
+Vi gör en tidning fylld av studentikos humor och allt annat sektionen kan
+tänkas vilja ha! Tycker du att sektionen behöver mer finkultur? Tror du att du
+kan skriva, teckna eller fotografera? (klart att du kan!) Tveka inte att ta
+kontakt med oss, så kommer vi utnyttja din potential till max!  von Tänen delas
+ut gratis i Hilbertrummet mot slutet av varje läsperiod och finns även att
+tillgå via datorn under länken von Tänen till vänster i menyn.'
+)
