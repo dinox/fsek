@@ -3,13 +3,14 @@ require 'fsek_settings'
 class Vecktor < ActiveRecord::Base
   include FsekSettings
 
-  attr_accessible :issue, :year, :date
+  attr_accessible :issue, :year, :date, :published
 
   has_many :vecktor_notices
   belongs_to :editor, :class_name => :User
   belongs_to :publisher, :class_name => :User
 
-  alias :notices :vecktor_notices
+  alias :notices    :vecktor_notices
+  alias :published? :published
 
   before_save :default_values # Kallback innan saker kommittas till databasen
 
