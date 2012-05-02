@@ -1,0 +1,2 @@
+module VecktorNoticesHelper
+end
