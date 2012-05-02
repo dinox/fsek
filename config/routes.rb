@@ -1,11 +1,24 @@
 Fsek::Application.routes.draw do
+  get "vecktor_notices/title:string"
+
+  get "vecktor_notices/signature:string"
+
+  get "vecktor_notices/content:text"
+
+  get "vecktor_notices/author:integer"
+
+  get "vecktor_notices/vecktor_id:integer"
+
   resources :pages
 
   resources :settings
-  resources :vecktors
   resources :roles
   resources :users
   resources :news
+
+  resources :vecktors do
+    resources :vecktor_notices
+  end
 
   devise_for :users, :skip => [:sessions]
   as :user do
