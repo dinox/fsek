@@ -1,14 +1,4 @@
 Fsek::Application.routes.draw do
-  get "vecktor_notices/title:string"
-
-  get "vecktor_notices/signature:string"
-
-  get "vecktor_notices/content:text"
-
-  get "vecktor_notices/author:integer"
-
-  get "vecktor_notices/vecktor_id:integer"
-
   resources :pages
 
   resources :settings
