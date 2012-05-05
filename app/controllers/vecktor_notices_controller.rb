@@ -1,6 +1,8 @@
 class VecktorNoticesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:index, :show]
   load_and_authorize_resource
+
+=begin Onödig, detta görs redan i vecktor#show
   # GET /vecktor_notices
   # GET /vecktor_notices.json
   def index
@@ -11,12 +13,13 @@ class VecktorNoticesController < ApplicationController
       format.json { render json: @vecktor_notices }
     end
   end
+=end
 
   # GET /vecktor_notices/1
   # GET /vecktor_notices/1.json
   def show
-    @vecktor_notice = VecktorNotice.find(params[:id])
-#    @notices = VecktorNotice.where(:vecktor_notice_id => @vecktor_notice.id)
+    @notice = VecktorNotice.find(params[:id])
+    @vecktor = @vecktor_notice.vecktor
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,0 +1,21 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= @notice.title %></h1>
+<%= raw(markdown @notice.text) %>
+<p><em>
+<%= @notice.author ? link_to(@notice.signature, @notice.author) : @notice.signature %>
+</em></p>
+
+<p class="controls">
+<% if can? :update, @notice %>
+  <%= link_to 'Ändra', edit_vecktor_notice_path(@notice) %> |
+<% end %>
+<% if can? :destroy, @notice %>
+  <%= link_to 'Förinta', @notice, :confirm => 'Är du säker?', :method => :delete %> |
+<% end %>
+<%= link_to 'Tillbaka', vecktor_index_path %>
+</p>
+
+<br />
