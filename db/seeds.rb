@@ -22,6 +22,7 @@ sanning = Role.create(
     :description => 'Ansvarar för informationsspridningen på sektionen.',
     :tag => 'sanning',
     :title => 'Sanningsminister',
+    :singular => true,
 )
 cafem = Role.create(
     :description => 'Cafémästaren bossar över Hilbert Café. Man har hand om
@@ -31,16 +32,19 @@ ett halvår, detta på grund att att man väljs in som vice Cafémästare i ett
 halvår först för att sedan automagiskt bli Cafémästare efter detta.',
     :tag => 'cafe',
     :title => 'Cafémästare',
+    :singular => true,
 )
 vcafem = Role.create(
     :title => 'Vice Cafémästare',
     :tag => 'vicecafe',
     :description => 'Cafémästarens slav.',
+    :singular => true,
 )
 ordf = Role.create(
     :title => 'Ordförande',
     :tag => 'ordf',
     :description => 'Makt & Respekt',
+    :singular => true,
 )
 User.delete_all
 root = User.create(
@@ -87,6 +91,7 @@ Setting.delete_all
 Setting[:'vecktor.first_year'] = 1992
 Setting[:'vecktor.editor']     = johan.id
 Setting[:'vecktor.publisher']  = bjorn.id
+Setting[:'vecktor.deadline']   = '20.00'
 
 News.delete_all
 News.create(

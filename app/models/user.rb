@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true
   validates :real_name, :presence => true
 
+  validates_associated :roles # Se till så att vi inte fuskar med rollerna.
+
   def default_values
     self.year    ||= Time.now.year
     self.program ||= :f
