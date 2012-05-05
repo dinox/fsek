@@ -1,14 +1,11 @@
-<h1>Settings</h1>
+<h1>Inställningar</h1>
 
-<table class="settings">
+<dl class="settings">
 <% @settings.each do |key, value| %>
-  <tr>
-    <td><%= key.to_sym.inspect %></td>
-    <td> =&gt;  </td>
-    <td><%= value.inspect %></td>
-  </tr>
+  <dt><%= key.to_sym.inspect %></dt>
+  <dd>&equals;&gt; <%= value.inspect %></dd>
 <% end %>
-</table>
+</dl>
 
-<br />
+<br>
 
