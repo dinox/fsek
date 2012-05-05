@@ -1,4 +1,15 @@
-<h1>Vecktorn</h1>
+<h1>Vecktorer</h1>
+
+<p>
+Vecktorn är F-sektionens nyhetsbrev som ges ut sent på kvällen varje läsmåndag.
+</p>
+
+<p>
+Kontakta 
+<%= link_to "Sanningsminister #{@sanning.real_name}", @sanning %>
+om du vill ha med en notis i Vecktorn. Deadline är kl. 
+<%= @deadline %>.
+</p>
 
 <ul>
 <% @vecktors.each do |vecktor| %>

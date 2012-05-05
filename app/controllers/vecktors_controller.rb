@@ -1,15 +1,17 @@
 class VecktorsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:index, :show]
   load_and_authorize_resource
+
+  respond_to :html, :xml, :json
+
   # GET /vecktors
   # GET /vecktors.json
   def index
     @vecktors = Vecktor.where :published => true
+    @sanning  = Role.where(:tag => :sanning).first.users.first
+    @deadline = Vecktor.setting :deadline
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @vecktors }
-    end
+    respond_with @vecktors 
   end
 
   # GET /vecktors/1
@@ -21,12 +23,8 @@ class VecktorsController < ApplicationController
     else
       @vecktor = Vecktor.first :order => 'date desc'
     end
-#    @notices = VecktorNotice.where(:vecktor_id => @vecktor.id)
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @vecktor }
-    end
+    respond_with @vecktor
   end
 
   # GET /vecktors/new
@@ -34,10 +32,7 @@ class VecktorsController < ApplicationController
   def new
     @vecktor = Vecktor.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @vecktor }
-    end
+    respond_with @vecktor
   end
 
   # GET /vecktors/1/edit
