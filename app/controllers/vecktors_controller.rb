@@ -4,7 +4,7 @@ class VecktorsController < ApplicationController
   # GET /vecktors
   # GET /vecktors.json
   def index
-    @vecktors = Vecktor.find :all, :conditions => 'published = 1'
+    @vecktors = Vecktor.where :published => true
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,12 @@ class VecktorsController < ApplicationController
   # GET /vecktors/1
   # GET /vecktors/1.json
   def show
-    @vecktor = Vecktor.find(params[:id])
+    # Om vi inte får nåt id-nummer, visa senaste vecktorn. (se rutten 'vecktorn')
+    if params[:id]
+      @vecktor = Vecktor.find(params[:id])
+    else
+      @vecktor = Vecktor.first :order => 'date desc'
+    end
 #    @notices = VecktorNotice.where(:vecktor_id => @vecktor.id)
 
     respond_to do |format|

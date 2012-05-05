@@ -10,6 +10,8 @@ Fsek::Application.routes.draw do
     resources :vecktor_notices
   end
 
+  match 'vecktorn' => 'vecktors#show' # Genväg som visar senaste vecktorn.
+
   devise_for :users, :skip => [:sessions]
   as :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
