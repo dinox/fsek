@@ -9,10 +9,11 @@
 </head>
 <body>
   <div id="main-container">
+<% if nil %>
     <div id="main-head">
       <a id="banner-text" href="/">F-sektionen</a>
     </div>
-
+<% end %>
     <div id="top-menu">
       <ul>
         <li><%= link_to 'Nyheter', News %></li>
@@ -21,8 +22,6 @@
         <li><%= link_to 'Vecktorer', Vecktor %></li>
         <li><%= link_to 'Inställningar', Setting %></li>
         <li><%= link_to 'Sidor', Page %></li>
-      </ul>
-      <ul>
         <li><%= render 'devise/quicklinks/login_links' %></li>
       </ul>
     </div>
