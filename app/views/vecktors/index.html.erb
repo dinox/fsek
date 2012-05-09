@@ -12,12 +12,17 @@ om du vill ha med en notis i Vecktorn. Deadline är kl.
 </p>
 
 <ul>
-<% @vecktors.each do |vecktor| %>
-  <li>
-    <b><%= link_to vecktor, vecktor %></b>
-    (<%= link_to 'Ändra', edit_vecktor_path(vecktor) %> |
-    <%= link_to 'Förinta', vecktor, confirm: 'Är du säker?', method: :delete %>)
-  </li>
+<% @year_vecktors.each do |year, vecktors| %>
+  <h2 id="<%= year %>">
+    <%= year %>
+  </h2>
+  <% vecktors.each do |vecktor| %>
+    <li>
+      <b><%= link_to vecktor, vecktor %></b>
+      (<%= link_to 'Ändra', edit_vecktor_path(vecktor) %> |
+      <%= link_to 'Förinta', vecktor, confirm: 'Är du säker?', method: :delete %>)
+    </li>
+  <% end %>
 <% end %>
 </ul>
 

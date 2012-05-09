@@ -37,4 +37,5 @@ def vecktor_load
     v.save
     end
   end
+  true
 end

@@ -7,7 +7,9 @@ class VecktorsController < ApplicationController
   # GET /vecktors
   # GET /vecktors.json
   def index
-    @vecktors = Vecktor.where :published => true
+    @vecktors = Vecktor.find :all, :order => 'date desc', 
+                             :conditions => { :published => true }
+    @year_vecktors = @vecktors.group_by { |v| v.date.year }
     @sanning  = Role.where(:tag => :sanning).first.users.first
     @deadline = Vecktor.setting :deadline
 
