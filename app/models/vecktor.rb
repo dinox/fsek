@@ -3,15 +3,13 @@ require 'fsek_settings'
 class Vecktor < ActiveRecord::Base
   include FsekSettings
 
-  attr_accessible :date
-#  attr_reader :year, :issue
+  attr_accessible :date, :editor_name, :publisher_name
 
   has_many :vecktor_notices
   belongs_to :editor,    :class_name => :User
   belongs_to :publisher, :class_name => :User
 
-  alias :notices    :vecktor_notices
-  #alias :published? :published
+  alias :notices :vecktor_notices
 
   before_save :default_values # Kallback innan saker kommittas till databasen
   
@@ -30,10 +28,24 @@ class Vecktor < ActiveRecord::Base
     self.published = true
   end
 
+  # Överskugga så att {publisher,editor}_name uppdateras automatiskt.
+
+  alias :old_editor=    :editor=
+  alias :old_publisher= :publisher=
+
+  def editor= usr
+    self.editor_name = usr.to_s_fstyle
+    self.old_editor  = usr
+  end
+
+  def publisher= usr
+    self.publisher_name = usr.to_s_fstyle
+    self.old_publisher  = usr
+  end
+
+
   def default_values
     self.date      ||= Time.now.to_date # Vi bryr oss inte om klockslaget.
-    self.editor    ||= User.find(Vecktor.setting :editor)
-    self.publisher ||= User.find(Vecktor.setting :publisher)
     self.year      ||= self.date.year() - Vecktor.setting(:first_year)
     if self.issue.nil?
       last_issue = Vecktor.first :order => 'date desc, issue desc'
@@ -47,10 +59,6 @@ class Vecktor < ActiveRecord::Base
 
   def to_s
     "Vecktorn, #{date}"
-  end
-
-  def plain_text
-    # Magi här
   end
 end
 

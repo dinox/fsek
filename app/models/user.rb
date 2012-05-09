@@ -31,11 +31,19 @@ class User < ActiveRecord::Base
     return !!self.roles.find_by_tag(role.to_s)
   end
    
-  def to_s
-    '%s %s%02d' % [self.real_name, self.program.capitalize, self.year % 100]
-    # Printf-syntax. Jag älskar den!
+  def to_s_fstyle
+    if self.program and self.year
+      '%s %s%02d' % [self.real_name, self.program.capitalize, self.year % 100]
+      # Printf-syntax. Jag älskar den!
+    else
+      self.real_name
+    end
   end
-	
+
+  # Kan komma att ändras i framtiden. Viewar som uttryckligen vill ha 
+  # Fxx-biten med i namnet måste använda :to_s_fstyle.
+  alias :to_s :to_s_fstyle
+
 #OLD CODE DELETE WHEN LOGIN SYSTEM DONE
 =begin	
 	#Attributes
