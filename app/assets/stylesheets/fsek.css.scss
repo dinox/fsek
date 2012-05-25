@@ -67,8 +67,9 @@ html, body {
 
 div#main-container {
     min-height: 100%;
-    background-color: #FFF;
-    padding: 10px 20px 10px 10px;
+    background-color: #97969e;
+    background-image: image-url('stripe.png');
+    padding: 20px 10px 10px 10px;
 }
 
 #banner-text {
@@ -92,7 +93,7 @@ div#top-menu {
 #top-menu ul {
     margin: 0px 0px;
     padding: 10px 0px;
-    background-color: #FFF;
+    background-color: transparent;
     border-bottom: 2px solid $f_orange;
 }
 
@@ -128,6 +129,9 @@ div#top-menu {
 
 div#main-wrapper {
     position: relative;
+    background-color: #FFF;
+    border: 0px $f_orange solid;
+    border-width: 0px 2px 2px 2px;
     padding-top: 20px;
 }
 
@@ -135,6 +139,7 @@ div#main-content {
     min-height: 100%;
     margin-top: -20px;
     margin-right: 162px;
+    margin-left: 10px;
 }
 
 div#side-menu {
