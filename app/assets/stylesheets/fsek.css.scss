@@ -72,7 +72,9 @@ html, body {
 div#main-container {
     min-height: 100%;
     background-color: $g_dark;
+/*
     background-image: image-url('stripe.png');
+ */
     padding: 20px 10px 10px 10px;
 }
 
@@ -91,34 +93,33 @@ div#main-head a:hover {
 }
 
 div#top-menu {
-
 }
 
 #top-menu ul {
-    margin: 0px 0px;
-    padding: 10px 0px;
+    margin: 0px 0px 5px 0px;
+    padding: 0px 0px 0px 4px;
     background-color: transparent;
-    border-bottom: 2px solid $o_light;
+    line-height: 2em;
 }
 
 #top-menu li {
-    margin: 0px 0px;
-    padding: 10px 5px;
     font-size: 12pt;
     display: inline;
+    white-space: nowrap;
 }
 
 #top-menu a:hover {
 }
 
 #top-menu a {
+    z-index: 1;
     position: relative;
-    top: 2px;
+    top: 4px;
     padding: 10px 10px; 
     font-size: 12pt;
     background-color: white;
     border: 2px solid $o_light;
-    border-bottom-style: none;
+    border-bottom-width: 0px;
 }
 
 #top-menu a:link {
@@ -135,7 +136,7 @@ div#main-wrapper {
     position: relative;
     background-color: #FFF;
     border: 0px $o_light solid;
-    border-width: 0px 2px 2px 2px;
+    border-width: 2px 2px 2px 2px;
 }
 
 $side_width: 162px;
@@ -143,7 +144,9 @@ $side_width: 162px;
 div#main-content {
     min-height: 100%;
     padding: 10px $side_width + 20px 10px 10px;
+/* 
     background: $g_light image-url('fade-50v.png') repeat-x scroll bottom;
+ */
 }
 
 div#side-menu {
@@ -153,7 +156,8 @@ div#side-menu {
     bottom: 0px;
     margin: 0px 0px 0px 20px;
     height: 100%;
-    background: $g_dark image-url('fade-20h.png') repeat-y scroll left;
+/*    background: $g_dark image-url('fade-20h.png') repeat-y scroll left;
+ */
 }
 
 #side-menu ul {
@@ -167,7 +171,10 @@ div#side-menu {
     right: 2px;
     border: 2px solid $o_light;
     width: $side_width - 20px;
+/*
     background: $g_light image-url('2fade-40v.png') repeat-x scroll left;
+ */
+    background-color: $g_light;
     padding: 10px 10px; 
     margin: 4px 0px;
 }
