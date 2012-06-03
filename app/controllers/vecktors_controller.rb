@@ -20,7 +20,7 @@ class VecktorsController < ApplicationController
       @vecktor = Vecktor.first :order => 'date desc'
     end
 
-    @notices = @vecktor.notices.sort { |n| n.order }
+    @notices = @vecktor.notices.sort { |n| n.order_ }
    end
 
   # GET /vecktors/new
