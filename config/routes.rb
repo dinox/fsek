@@ -17,6 +17,7 @@ Fsek::Application.routes.draw do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
     post 'login' => 'devise/sessions#create', :as => :user_session
     delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+    get 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
   # The priority is based upon order of creation:

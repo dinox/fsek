@@ -1,0 +1,23 @@
+---
+sv:
+  date:
+    formats:
+      default: '%d %B %Y'
+      long: '%Aren den %d %B %Y'
+      short: '%d %B %Y'
+
+    day_names: [Söndag, Måndag, Tisdag, Onsdag, Torsdag, Fredag, Lördag]
+    abbr_day_names: [Sön, Mån, Tis, Ons, Tors, Fre, Lör]
+
+    month_names: [~, Januari, Februari, Mars, April, Maj, Juni, Juli, Augusti, September, Oktober, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, Maj, Jun, Jul, Aug, Sep, Okt, Nov, Dec]
+    # Used in date_select and datime_select.
+    order: [!ruby/symbol year, !ruby/symbol month, !ruby/symbol day]
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+...
