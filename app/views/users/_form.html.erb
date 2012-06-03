@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,37 +10,52 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :username, 'Användarnamn' %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <% if @current_method == "new" %>
-  <div class="field">
-    <%= f.label :password, 'Lösenord' %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, 'Bekräfta lösenord' %><br />
-    <%= f.password_field :password_confirmation %>
-  </div> 
-  <% end %>
-  <div class="field">
-    <%= f.label :real_name, 'Riktigt Namn' %><br />
-    <%= f.text_field :real_name %>
-  </div>
-  <p>Roller</p>
-  <% for role in Role.all %>
-    <div>
-      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-      <%= role.title %>
+  <div id="left">
+    <div class="field">
+      <%= f.label :username, 'Användarnamn' %><br />
+      <%= f.text_field :username %>
     </div>
-  <% end %>
-  <br />
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <% if @current_method == "new" %>
+      <div class="field">
+        <%= f.label :password, 'Lösenord' %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, 'Bekräfta lösenord' %><br />
+        <%= f.password_field :password_confirmation %>
+      </div> 
+    <% end %>
+    <div class="field">
+      <%= f.label :real_name, 'Riktigt Namn' %><br />
+      <%= f.text_field :real_name %>
+    </div>
+    <div class="field">
+      <%= f.label :program, 'Program' %><br />
+      <%= f.text_field :program %>
+    </div>
+    <div class="field">
+      <%= f.label :year, 'Årgång' %><br />
+      <%= f.text_field :year %>
+    </div>
+    <div class="field">
+      <%= f.label :photo, 'Profilbild' %><br />
+      <%= f.file_field :photo %>
+    </div>
+  </div>
+  <div id="right">
+    <p>Roller</p>
+    <% for role in Role.all %>
+      <div>
+        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+        <%= role.title %>
+      </div>
+    <% end %>
+    <br />
+  </div>
   <div class="actions">
     <%= f.submit 'Uppdatera' %>
   </div>

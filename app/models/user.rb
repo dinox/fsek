@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :real_name, :password, 
                   :password_confirmation, :remember_me, :role_ids, :year, 
-                  :program
+                  :program, :photo
+  
+  # Paperclip
+  has_attached_file :photo, :styles => { :thumb => '100x100#',
+                                         :small => '200x200' }
 
   before_create :default_values # Krok som kallas innan saker creatas.
 

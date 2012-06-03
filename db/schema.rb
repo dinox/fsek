@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509151510) do
+ActiveRecord::Schema.define(:version => 20120603153026) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(:version => 20120509151510) do
     t.integer  "year"
     t.string   "program"
     t.integer  "awsomeness"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
