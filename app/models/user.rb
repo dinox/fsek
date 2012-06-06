@@ -43,43 +43,4 @@ class User < ActiveRecord::Base
   # Kan komma att ändras i framtiden. Viewar som uttryckligen vill ha 
   # Fxx-biten med i namnet måste använda :to_s_fstyle.
   alias :to_s :to_s_fstyle
-
-#OLD CODE DELETE WHEN LOGIN SYSTEM DONE
-=begin	
-	#Attributes
-	attr_reader :password
-	attr_accessor :password_confirmation
-	
-	def password=(password)
-		@password = password
-
-		if password.present?
-			self.hashed_password = BCrypt::Password.create(password)
-		end
-	end
-
-	#Relationships
-	has_many :news
-
-	#Validations of the fields
-	validates :username, :email, :presence => true, :uniqueness => true
-	validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
-	validates :password, :confirmation => true
-	validates :real_name, :presence => true
-	validate :password_must_be_present
-
-	#Methods :D	
-	def User.authenticate(username, password)
-		if user = find_by_username(username)
-			if BCrypt::Password.new(user.hashed_password) == password
-				return user
-			end
-		end
-	end
-
-	private
-	def password_must_be_present
-		errors.add(:password, "Missing Password") unless hashed_password.present?
-	end
-=end
 end
