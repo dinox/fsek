@@ -22,7 +22,7 @@ class Ability
   end
 
   def styrelse
-    can :manage, Info
+#    can :manage, Info
     can :create, News
     can :update, News, :user_id => @user.id
   end

@@ -5,15 +5,10 @@
     </h2>
     <p><em>Postat av 
     <%= link_to news.user.real_name, news.user %>, 
-    <%= fmt_time(news.created_at) %></em></p>
+    <%= l news.created_at.to_date %></em></p>
 
     <%= raw(markdown(news.text)) %>
-    <p class="controls">
-    <% if can? :modify, News %>
-      <%= link_to 'Ändra', edit_news_path(news) %> |  
-      <%= link_to 'Förinta', news, :confirm => 'Är du säker?', :method => :delete %>
-    <% end %>
-    </p>
+    <%= controls news, :p => true %>
   </div>
 <% end %>
 

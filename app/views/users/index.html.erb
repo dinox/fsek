@@ -4,27 +4,23 @@
 <% end %>
 
 <table class="list">
-  <tr>
-    <th>Användarnamn</th>
-    <th>Email</th>
-    <th>Namn</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.real_name %></td>
     <td><%= user.username %></td>
     <td><%= user.email %></td>
-    <td><%= user.real_name %></td>
-    <td><%= link_to 'Visa', user %></td>
-    <td><%= link_to 'Ändra', edit_user_path(user) %></td>
-    <td><%= link_to 'Förinta', user, confirm: 'Är du säker?', method: :delete %></td>
+    <td><%= user.program.capitalize %></td>
+    <td><%= '%02d' % user.year % 100 %></td>
+    <td><%= link_to 'Visa', user %>
+<% if can? :manage, user %>
+    | <%= link_to 'Ändra', edit_user_path(user) %>
+    | <%= link_to 'Förinta', user, confirm: 'Är du säker?', method: :delete %>
+<% end %>
+    </td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'Ny Användare', new_user_path %>

@@ -57,6 +57,25 @@ class Vecktor < ActiveRecord::Base
    end
   end
 
+  def to_ascii
+    v_text = ''
+    File.open 'app/assets/templates/vecktor' do |f|
+      v_text << f.read % [self.issue, self.year,
+                          self.editor    || self.editor_name, 
+                          self.publisher || self.published_name]
+    end
+    v_text << "\n"
+    vecktor_notices.each do |notice|
+      v_text << notice.title.upcase + "\n\n"
+      v_text << ActionController::Base.helpers.word_wrap(notice.text, 
+                                                         :line_width => 80)
+      v_text << "\n\n"
+    end
+    v_text
+  end
+      
+    
+
   def to_s
     "Vecktorn, #{date}"
   end
