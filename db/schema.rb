@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(:version => 20120509151510) do
     t.string   "encrypted_password",     :default => "", :null => false
     t.integer  "year"
     t.string   "program"
-    t.integer  "awsomeness"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
