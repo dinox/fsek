@@ -3,42 +3,53 @@
 <head>
   <title>F-sektionen</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag(
+      'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js') %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta charset=utf-8>
 </head>
 <body>
-  <div id="main-container">
+  <div id=main-container>
 <% if nil %>
-    <div id="main-head">
-      <a id="banner-text" href="/">F-sektionen</a>
+    <div id=main-head>
+      <a id=banner-text href=/>F-sektionen</a>
     </div>
 <% end %>
-    <div id="top-menu">
-      <ul>
-        <li><%= link_to 'Nyheter', News %></li>
-        <li><%= link_to 'Användare', User %></li>
-        <li><%= link_to 'Roller', Role %></li>
-        <li><%= link_to 'Vecktorer', Vecktor %></li>
-        <li><%= link_to 'Inställningar', Setting %></li>
-        <li><%= link_to 'Sidor', Page %></li>
+    <div id=top-menu>
+      <ul class=top-super id=top-left>
+        <li><%= link_to 'Student',        '/student' %></li>
+        <li><%= link_to 'Vill studera',   '/vill-studera' %></li>
+        <li><%= link_to 'Företag',        '/företag' %></li>
+        <li><%= link_to 'Kontroller',     '/kontroller' %>
+          <ul class=top-sub>
+            <li><%= link_to 'Nyheter',       News %></li>
+            <li><%= link_to 'Användare',     User %></li>
+            <li><%= link_to 'Roller',        Role %></li>
+            <li><%= link_to 'Inställningar', Setting %></li>
+            <li><%= link_to 'Sidor',         Page %></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Om F-sektionen', '/om-f' %></li>
+      </ul>
+      <ul class=top-super id=top-right>
         <li><%= render 'devise/quicklinks/login_links' %></li>
       </ul>
     </div>
-    <div id="main-wrapper">
-      <div id="side-menu">
+    <div id=main-wrapper>
+      <div id=side-menu>
         <ul>
-          <li><a href="about:blank">Äppel</a></li>
-          <li><a href="about:blank">Päppel</a></li>
-          <li><a href="about:blank">Piron</a></li>
-          <li><a href="about:blank">Paron</a></li>
-          <li><a href="about:blank">Kråkan</a></li>
-          <li><a href="about:blank">Satt</a></li>
-          <li><a href="about:blank">På</a></li>
-          <li><a href="about:blank">Tallekvist</a></li>
+          <li><a href=about:blank>Äppel</a></li>
+          <li><a href=about:blank>Päppel</a></li>
+          <li><a href=about:blank>Piron</a></li>
+          <li><a href=about:blank>Paron</a></li>
+          <li><a href=about:blank>Kråkan</a></li>
+          <li><a href=about:blank>Satt</a></li>
+          <li><a href=about:blank>På</a></li>
+          <li><a href=about:blank>Tallekvist</a></li>
         </ul>
       </div>
-      <div id="main-content">
+      <div id=main-content>
         <%= yield %>
       </div>
     </div>

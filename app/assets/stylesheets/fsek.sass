@@ -88,30 +88,44 @@ div#main-wrapper
 div#main-head a:hover 
     text-decoration: none
 
-div#top-menu 
+div#top-menu
 
 #top-menu ul 
-    margin: 0px 0px 5px 0px
-    padding: 0px 0px 0px 4px
+    position: relative
+    padding: 0px 
     background-color: transparent
     line-height: 2em
+
+ul#top-left
+    display: inline 
+    margin-left: 4px
+
+ul#top-right
+    position: absolute
+    right: 10px
+    display: inline
 
 #top-menu li 
     font-size: 12pt
     display: inline
+    position: relative
     white-space: nowrap
 
-#top-menu a:hover 
+#top-menu ul.top-sub
+    display: none
+    position: absolute
 
-#top-menu a 
+#top-menu a
     z-index: 1
     position: relative
-    top: 4px
     padding: 10px 10px 
     font-size: 12pt
     background-color: white
     border: 2px solid $o_light
     border-bottom-width: 0px
+
+.top-sub li
+    width: 150px
 
 #top-menu a:link 
     color: $o_dark
@@ -126,7 +140,6 @@ div#main-wrapper
     background-color: #FFF
     border: 0px $o_light solid
     border-width: 2px 2px 2px 2px
-
 
 $side_width: 162px
 
