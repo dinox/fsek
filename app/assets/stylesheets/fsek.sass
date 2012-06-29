@@ -1,6 +1,6 @@
-/* fsek.css.scss */
+// fsek.css.scss
 
-/* constants */
+// constants
 
 $o_light:  #f00
 $o_dark:   #c70
@@ -8,9 +8,9 @@ $o_light:  #f90
 $g_dark:   #919194
 $g_light:  #e6e6e6
 
-/* mixins */
+// mixins
 
-/* general */
+// general
 
 * 
     margin: 0
@@ -19,19 +19,19 @@ html
     font-family: helvetica, verdana, arial, sans-serif
 
 p 
-    color: #000
+    color: black
     font-size: 11pt
-    margin: 20px 0px
+    margin: 20px 0
 
 h1 
-    margin: 0px 0px 20px 0px
+    margin: 0 0 20px 0
 
 h2 
     font-weight: bold
-    margin: 0px 0px 20px 0px
+    margin: 0 0 20px 0
 
 a 
-    color: #000
+    color: black
     font-family: inherit
     font-size: 11pt
     &:link 
@@ -43,134 +43,67 @@ a
     
     &:hover 
         text-decoration: underline
-        color: #000
+        color: black
 
-/* rails stuff */
+// rails stuff
 
 #notice 
     background-color: $o_light
 
-/* used in several views */
+// used in several views
 
 .controls a 
     font-weight: bold
 
-/* views/layouts/application.html.erb */
-
-table.list 
-    width: 100%
+// views/layouts/application.html.erb
 
 html, body 
-    margin: 0px
-    padding: 0px
+    margin: 0
+    padding: 0
     height: 100%
 
 body
-    background-color: $g_dark
-
-div#main-container 
-    padding: 20px 10px 20px 10px
-
-div#main-wrapper
-    min-height: 600px
-    height: auto !important
-    height: 600px
-
-#banner-text 
-    margin: 0px 0px 0px 10px 
-    padding: 0px
-    text-align: left
-    font-family: georgia, times, serif
-    font-size: 36pt
-    font-variant: small-caps
-    color: $o_light
-
-div#main-head a:hover 
-    text-decoration: none
-
-div#top-menu
-
-#top-menu ul 
-    position: relative
-    padding: 0px 
-    background-color: transparent
-    line-height: 2em
-
-ul#top-left
-    display: inline 
-    margin-left: 4px
-
-ul#top-right
-    position: absolute
-    right: 10px
-    display: inline
-
-#top-menu li 
-    font-size: 12pt
-    display: inline
-    position: relative
-    white-space: nowrap
-
-#top-menu ul.top-sub
-    display: none
-    position: absolute
-
-#top-menu a
-    z-index: 1
-    position: relative
-    padding: 10px 10px 
-    font-size: 12pt
     background-color: white
-    border: 2px solid $o_light
-    border-bottom-width: 0px
 
-.top-sub li
-    width: 150px
+nav#top-menu
+    background: $o_light
+    background: -webkit-gradient(linear, left top, left bottom, from($o_light), to($o_dark))
+    background: -moz-linear-gradient(top, $o_light, $o_dark)
+    margin: 20px
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    border-radius: 3px
+    border: black 1px solid
+    padding: 15px 0
+    ul
+        display: inline
+        padding: 0
+        li
+            position: relative
+    ul.top-super li
+        padding: 15px
+        display: inline
+    ul#top-left li
+        border-right: black 1px solid
+    ul#top-right li
+        border-left: black 1px solid
+    ul.top-sub 
+        display: none
+        position: absolute
+        background: $o_dark
+        border: black 1px solid
+        border-top: none
+        li
+            padding: 10px 20px 
+            border-width: 0px 
+    a
+        font-weight: bold
+        color: white
 
-#top-menu a:link 
-    color: $o_dark
-    text-decoration: none
-    
-#top-menu a:hover 
-    color: #FFF
-    background-color: $o_light
-
-div#main-wrapper 
-    position: relative
-    background-color: #FFF
-    border: 0px $o_light solid
-    border-width: 2px 2px 2px 2px
-
-$side_width: 162px
-
-div#main-content 
-    min-height: 100%
-    padding: 10px $side_width + 20px 10px 10px
+article#content
+    margin: 10px 40px 
+    max-width: 900px
 
 
-div#side-menu 
-    width: $side_width
-    position: absolute
-    right: 0px
-    bottom: 0px
-    margin: 0px 0px 0px 20px
-    height: 100%
 
-#side-menu ul 
-    padding: 0px
-    margin: 0px
-
-
-#side-menu li 
-    display: block
-    position: relative
-    right: 2px
-    border: 2px solid $o_light
-    width: $side_width - 20px
-    background-color: $g_light
-    padding: 10px 10px 
-    margin: 4px 0px
-
-#side-menu a 
-    font-size: 12pt
 

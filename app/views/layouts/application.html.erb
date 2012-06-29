@@ -10,13 +10,8 @@
   <meta charset=utf-8>
 </head>
 <body>
-  <div id=main-container>
-<% if nil %>
-    <div id=main-head>
-      <a id=banner-text href=/>F-sektionen</a>
-    </div>
-<% end %>
-    <div id=top-menu>
+  <header id=main-container>
+    <nav id=top-menu>
       <ul class=top-super id=top-left>
         <li><%= link_to 'Student',        '/student' %></li>
         <li><%= link_to 'Vill studera',   '/vill-studera' %></li>
@@ -35,24 +30,10 @@
       <ul class=top-super id=top-right>
         <li><%= render 'devise/quicklinks/login_links' %></li>
       </ul>
-    </div>
-    <div id=main-wrapper>
-      <div id=side-menu>
-        <ul>
-          <li><a href=about:blank>Äppel</a></li>
-          <li><a href=about:blank>Päppel</a></li>
-          <li><a href=about:blank>Piron</a></li>
-          <li><a href=about:blank>Paron</a></li>
-          <li><a href=about:blank>Kråkan</a></li>
-          <li><a href=about:blank>Satt</a></li>
-          <li><a href=about:blank>På</a></li>
-          <li><a href=about:blank>Tallekvist</a></li>
-        </ul>
-      </div>
-      <div id=main-content>
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+    </nav>
+  </header>
+  <article id=content>
+      <%= yield %>
+  </article>
 </body>
 </html>
