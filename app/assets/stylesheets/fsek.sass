@@ -1,14 +1,30 @@
 // fsek.css.scss
 
-// constants
+// global constants
 
 $o_light:  #f00
 $o_dark:   #c70
 $o_light:  #f90
-$g_dark:   #919194
-$g_light:  #e6e6e6
+$g_dark:   #999
+$g_light:  #ddd
 
 // mixins
+
+$border_radius: 3px
+
+@mixin round-corners($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    border-radius: $radius
+
+@mixin round-corners-bottom($radius)
+    @include round-corners(0)
+    -webkit-border-bottom-right-radius: $radius
+    -webkit-border-bottom-left-radius: $radius
+    -moz-border-radius-bottomright: $radius
+    -moz-border-radius-bottomleft: $radius
+    border-bottom-right-radius: $radius
+    border-bottom-left-radius: $radius
 
 // general
 
@@ -57,6 +73,17 @@ a
 
 // views/layouts/application.html.erb
 
+@mixin lingrad
+    background: $o_light
+    background: -webkit-gradient(linear, left top, left bottom, from($o_light), to($o_dark))
+    background: -moz-linear-gradient(top, $o_light, $o_dark)
+
+@mixin rev-lingrad
+    background: $o_dark
+    background: -webkit-gradient(linear, left top, left bottom, from($o_dark), to($o_light))
+    background: -moz-linear-gradient(top, $o_dark, $o_light)
+
+
 html, body 
     margin: 0
     padding: 0
@@ -65,45 +92,60 @@ html, body
 body
     background-color: white
 
+$menu_height: 40px
+
+// The great dropdown menu style.
+
 nav#top-menu
-    background: $o_light
-    background: -webkit-gradient(linear, left top, left bottom, from($o_light), to($o_dark))
-    background: -moz-linear-gradient(top, $o_light, $o_dark)
+    @include lingrad
+    @include round-corners($border_radius)
+    height: $menu_height
     margin: 20px
-    -webkit-border-radius: 3px
-    -moz-border-radius: 3px
-    border-radius: 3px
-    border: black 1px solid
-    padding: 15px 0
-    ul
+    border: $g_light 1px solid
+    padding: 0
+    div 
         display: inline
+        line-height: 40px
+        position: relative
+        border-right: $g_light 1px solid
+        float: left
+        padding: 0 10px
+    div:hover
+        @include rev-lingrad
+    div#f-logo
+        background-image: url('f-40px.png') 
+        background-position: center
         padding: 0
-        li
-            position: relative
-    ul.top-super li
-        padding: 15px
-        display: inline
-    ul#top-left li
-        border-right: black 1px solid
-    ul#top-right li
-        border-left: black 1px solid
-    ul.top-sub 
+        height: $menu_height
+        width: $menu_height
+    div.submenu
+        border: none
+        padding: 0
+        margin: 0
+    div.top-sub 
+        @include round-corners-bottom($border_radius)
+        margin: 0
+        padding: 0
         display: none
         position: absolute
-        background: $o_dark
-        border: black 1px solid
+        top: $menu_height
+        left: -1px
+        z-index: 0
+        background: $o_light
+        border: $g_light 1px solid
         border-top: none
-        li
+        a
+            line-height: 15px
             padding: 10px 20px 
             border-width: 0px 
+        a:hover
+            text-decoration: underline
     a
         font-weight: bold
         color: white
+        text-decoration: none
 
 article#content
-    margin: 10px 40px 
+    margin: 0 40px 10px 40px 
     max-width: 900px
-
-
-
 

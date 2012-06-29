@@ -12,24 +12,22 @@
 <body>
   <header id=main-container>
     <nav id=top-menu>
-      <ul class=top-super id=top-left>
-        <li><%= link_to 'Student',        '/student' %></li>
-        <li><%= link_to 'Vill studera',   '/vill-studera' %></li>
-        <li><%= link_to 'Företag',        '/företag' %></li>
-        <li><%= link_to 'Kontroller',     '/kontroller' %>
-          <ul class=top-sub>
-            <li><%= link_to 'Nyheter',       News %></li>
-            <li><%= link_to 'Användare',     User %></li>
-            <li><%= link_to 'Roller',        Role %></li>
-            <li><%= link_to 'Inställningar', Setting %></li>
-            <li><%= link_to 'Sidor',         Page %></li>
-          </ul>
-        </li>
-        <li><%= link_to 'Om F-sektionen', '/om-f' %></li>
-      </ul>
-      <ul class=top-super id=top-right>
-        <li><%= render 'devise/quicklinks/login_links' %></li>
-      </ul>
+      <%= link_to raw('<div id=f-logo></div>'),   '/' %>
+      <%= link_to raw('<div>Vill studera</div>'), '/vill-studera' %>
+      <%= link_to raw('<div>Företag</div>'),      '/företag' %>
+      <%= link_to raw('<div>Utskott</div>'),      '/utskott' %>
+      <div class=submenu>
+        <%= link_to raw('<div>Admin</div>'), '/admin' %>
+          <div class=top-sub>
+            <%= link_to 'Nyheter',       News %>
+            <%= link_to 'Användare',      User %>
+            <%= link_to 'Roller',        Role %>
+            <%= link_to 'Inställningar', Setting %>
+            <%= link_to 'Sidor',         Page %>
+          </div>
+      </div>
+      <%= link_to raw('<div>Om F-sektionen</div>'), '/om-f' %>
+      <%= raw('<div>') + render('devise/quicklinks/login_links') + raw('</div>') %>
     </nav>
   </header>
   <article id=content>
