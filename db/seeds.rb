@@ -210,6 +210,7 @@ Page.delete_all
 Page.create(
     :title => 'Sanningsministeriet',
     :original_author_id => johan.id,
+    :names => ['sanning'],
     :content => '**Har du något F-uffens för dig? Kom till oss i
 Sanningsministeriet så marknadsför vi det!** Vi ansvarar nämligen för en samlad
 och strukturerad informationsspridning på sektionen. Tillsammans ser vi till

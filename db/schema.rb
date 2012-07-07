@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20120629195600) do
 
   create_table "aliases", :force => true do |t|
-    t.integer  "page_id"
-    t.string   "name"
+    t.integer  "page_id", :null => false
+    t.string   "name", :null => false
   end
 
   create_table "news", :force => true do |t|

@@ -1,13 +1,18 @@
 # encoding=utf-8
 class ApplicationController < ActionController::Base
-	before_filter :do_before_filter
+    before_filter :authenticate_user!
 	protect_from_forgery
 	check_authorization :unless => :devise_controller?
 
-    def do_before_filter
-      authenticate_user!
+    before_filter :save_action_controller
+    
+    def save_action_controller
       @current_action = action_name
       @current_controller = controller_name
+    end
+
+    def not_found
+        raise ActionController::RoutingError.new('Not Found')
     end
 
 =begin

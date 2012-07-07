@@ -1,19 +1,23 @@
-<h1>Listing pages</h1>
+<h1>Sidor</h1>
 
-<table>
+<table class=index>
   <tr>
-    <th>Title</th>
-    <th>Author</th>
+    <th>Rubrik</th>
+    <th>URL-er</th>
+    <th>Författare</th>
     <th></th>
   </tr>
 
 <% @pages.each do |page| %>
   <tr>
     <td><%= page.title %></td>
-    <td><%= page.original_author_id %></td>
-    <td><%= link_to 'Visa', page %>
-    <%= link_to 'Ändra', edit_page_path(page) %>
-    <%= link_to 'Förinta', page, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <% page.names.each do |name| %>
+        <%= name %><br>
+      <% end %>
+    </td>
+    <td><%= link_to page.original_author %></td>
+    <td><%= controls page %></td>
   </tr>
 <% end %>
 </table>

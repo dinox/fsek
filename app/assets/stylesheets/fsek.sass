@@ -33,6 +33,7 @@ $border_radius: 3px
 
 html 
     font-family: helvetica, verdana, arial, sans-serif
+    font-size: 11pt
 
 p 
     color: black
@@ -61,6 +62,9 @@ a
         text-decoration: underline
         color: black
 
+td
+    padding: 0 8px
+
 // rails stuff
 
 #notice 
@@ -68,10 +72,11 @@ a
 
 // used in several views
 
-.controls
-    margin-top: 20px
-    a
-        font-weight: bold
+.controls a
+    font-weight: bold
+
+.field
+    margin: 10px 0
 
 // views/layouts/application.html.erb
 
@@ -148,6 +153,7 @@ nav#top-menu
         text-decoration: none
 
 article#content
-    margin: 0 40px 10px 40px 
+    margin: 0 40px
+    padding-bottom: 40px
     max-width: 900px
 

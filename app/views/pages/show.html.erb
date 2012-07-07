@@ -3,20 +3,22 @@
 <% end %>
 
 <h1><%= @page.title %></h1>
-<p>
-  <i>Författare:
-  <%= link_to @page.original_author, @page.original_author %></i>
-</p>
-<% if @page.original_author != @page.recent_author %>
-  <p>
-    <i>Senast ändrad av:
-    <%= link_to @page.recent_author, @page.recent_author %></i>
-  </p>
-<% end %>
-
 <% if can? :update, @page %>
-  <%= link_to 'Ändra', edit_page_path(@page) %>
+  <em>Skapad av:
+    <%= link_to @page.original_author, @page.original_author %>, 
+    <%= l @page.created_at.to_date %>
+  </em>
+  <% if @page.original_author != @page.recent_author %>
+    <br>
+    <em>Senast ändrad av:
+      <%= link_to @page.recent_author, @page.recent_author %>,
+      <%= l @page.updated_at.to_date %>
+    </em>
+  <% end %>
+<br>
 <% end %>
+<%= controls @page %>
+
 
 <%= raw(markdown(@page.content)) %>
 

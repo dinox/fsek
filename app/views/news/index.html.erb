@@ -8,8 +8,9 @@
     <%= l news.created_at.to_date %></em></p>
 
     <%= raw(markdown(news.text)) %>
-    <% if can? :manage, news  %>
-      <%= controls news, :p => true, :show => false %>
+    <% if can? :update, news  %>
+      <%= controls news, :show => false %>
+      <br>
     <% end %>
   </div>
 <% end %>

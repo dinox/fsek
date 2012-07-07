@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_filter :authenticate_user!, :only => [:show]
+  skip_before_filter:authenticate_user!, :only => [:show]
   load_and_authorize_resource
   # GET /pages
   # GET /pages.json
@@ -15,7 +15,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    if params[:name]
+      @page = Page.by_name params[:name]
+    else
+      @page = Page.find(params[:id])
+    end 
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,6 +47,8 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
+    @page.original_author = current_user
+    @page.recent_author = current_user
 
     respond_to do |format|
       if @page.save
@@ -59,6 +65,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
+    @page.recent_author = current_user
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
