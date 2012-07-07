@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603153026) do
+ActiveRecord::Schema.define(:version => 20120629195600) do
+
+  create_table "aliases", :force => true do |t|
+    t.integer  "page_id"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "news", :force => true do |t|
     t.string   "title"

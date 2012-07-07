@@ -1,11 +1,9 @@
 Fsek::Application.routes.draw do
   resources :pages
-
   resources :settings
   resources :roles
   resources :users
   resources :news
-
   resources :vecktors do
     resources :vecktor_notices
   end

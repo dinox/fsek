@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
 
   belongs_to :original_author, :class_name => :User
   belongs_to :recent_author,   :class_name => :User
+  has_many   :aliases
 
   validates :title, :presence => true
 end
