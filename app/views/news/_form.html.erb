@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title, 'Rubrik' %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
@@ -20,6 +20,6 @@
     <%= f.text_area(:text, :cols => 80, :rows => 20) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Ändra nyhet'%>
   </div>
 <% end %>
