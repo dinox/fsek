@@ -5,33 +5,36 @@ module ApplicationHelper
   end
 
   def controls(obj, *args)
-    options = {:p => false, :show => true}
+    options = {:show => true, :edit => true, :destroy => true}
     options.merge! args.extract_options!
-    s = ''
-    if options[:p] 
-      s << "<p class=\"controls\">\n"
-    end
+
+    options[:show] = false if @current_action == 'show'
+    options[:edit] = false if @current_action == 'edit'
+    
+    stuff_to_add = []
     if options[:show] and can? :read, obj
-      s << link_to('Visa', obj) << "\n"
+      stuff_to_add << link_to('Visa', obj)
     end
-    if can? :update, obj
-      s << ' | ' if options[:show] and can? :read, obj
-      s << link_to('Ändra', 
+    if options[:edit] and can? :update, obj
+      stuff_to_add << link_to('Ändra', 
                    "/#{obj.class.to_s.underscore.pluralize}/#{obj.id}/edit") 
-      s << "\n"
-      s << ' | ' if can? :destroy, obj
     end
-    if can? :destroy, obj
-      s << link_to('Förinta', obj, :confirm => 'Är du säker?', 
-                   :method => :delete) << "\n"
-      s << ' | ' if options[:back]
+    if options[:destroy] and can? :destroy, obj
+      stuff_to_add << link_to('Förinta', obj, :confirm => 'Är du säker?', 
+                   :method => :delete)
     end
     if options[:back]
-      s << link_to('Tillbaka', options[:back]) << "\n"
+      stuff_to_add << link_to('Tillbaka', options[:back])
+    end 
+
+    output = ''
+    output << "<div class=\"controls\">\n"
+    stuff_to_add.each do |s|
+      output << s << " | \n"
     end
-    if options[:p]
-      s << "</p>\n"
-    end
-    raw s
+    output = output[0...-4] + "\n"
+    output << "</div>\n"
+
+    return raw output
   end
 end
