@@ -1,6 +1,15 @@
+<% unless @bare %>
+  <% if can? :create, News %> 
+    <div class=framed>
+    <h3><%= link_to 'Skriv en ny nyhet', new_news_path %></h3>
+    </div>
+    <br>
+  <% end %> 
+<% end %>
+
 <% @news.each do |news| %>
-  <div class="news">
-    <h2 id="<%= id_escape(news.title) %>">
+  <div class="news" id="news-<%= news.id %>">
+    <h2>
     <%= link_to news.title, news %>
     </h2>
     <p><em>Postat av 
@@ -15,5 +24,3 @@
   </div>
 <% end %>
 
-<br />
-<h3><%= link_to 'Ny nyhet', new_news_path if can? :create, News %></h3>

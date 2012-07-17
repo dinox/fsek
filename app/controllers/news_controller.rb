@@ -1,37 +1,40 @@
 class NewsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:index, :show]
   load_and_authorize_resource
-  # GET /news
-  # GET /news.json
-  def index
-    @news = News.order(:created_at).reverse
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @news }
+  respond_to :html, :json, :xml
+
+  # GET /news
+  def index
+    logger.debug params
+    # Default values.
+    if params.has_key? 'size' and params['size'].to_i > 0
+      @size = params['size'].to_i else @size = 10
+    end 
+    if params.has_key? 'page' and params['page'].to_i >= 0
+      @page = params['page'].to_i else @page = 0
     end
+    if params.has_key? 'bare' and [1, 0].include? params['bare'].to_i
+      @bare = params['bare'].to_i == 1 ? true : false 
+    else 
+      @bare = false
+    end
+    logger.debug "size=#{@size}, page=#{@page}, bare=#{@bare}"
+
+    @news = News.find(:all, :order => 'created_at desc', 
+                      :limit => @size, :offset => @page * @size)
+    respond_with @news, :layout => !@bare
   end
 
   # GET /news/1
-  # GET /news/1.json
   def show
     @news = News.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @news }
-    end
+    respond_with @news
   end
 
   # GET /news/new
-  # GET /news/new.json
   def new
     @news = News.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @news }
-    end
   end
 
   # GET /news/1/edit
@@ -40,7 +43,6 @@ class NewsController < ApplicationController
   end
 
   # POST /news
-  # POST /news.json
   def create
     @news = News.new(params[:news])
 
@@ -56,7 +58,6 @@ class NewsController < ApplicationController
   end
 
   # PUT /news/1
-  # PUT /news/1.json
   def update
     @news = News.find(params[:id])
 
@@ -72,7 +73,6 @@ class NewsController < ApplicationController
   end
 
   # DELETE /news/1
-  # DELETE /news/1.json
   def destroy
     @news = News.find(params[:id])
     @news.destroy
