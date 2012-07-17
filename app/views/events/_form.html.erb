@@ -1,0 +1,23 @@
+<%= form_for(@event) do |f| %>
+  <%= put_errors @event %>
+
+  <div class=field>
+    <%= f.label :title, 'Rubrik' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class=field>
+    <%= f.label :begins_at, 'Börjar' %><br />
+    <%= f.text_field :begins_at %>
+  </div>
+  <div class=field>
+    <%= f.label :ends_at, 'Slutar' %><br />
+    <%= f.text_field :ends_at %>
+  </div>
+  <div class=field>
+    <%= f.label :text, 'Text' %><br />
+    <%= f.text_area(:text, :cols => 80, :rows => 40) %>
+  </div>
+  <div class=actions>
+    <%= f.submit 'Ändra event'%>
+  </div>
+<% end %>

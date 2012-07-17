@@ -1,0 +1,11 @@
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h2><%= @event.title %></h2>
+
+<p><%= l @event.begins_at %> - <% l @event.ends_at %></p>
+
+<%= raw markdown @event.text %>
+
+<%= controls @event, :p => true, :back => Event %>

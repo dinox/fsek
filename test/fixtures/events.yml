@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  begin_at: 2012-07-07 21:30:56
+  end_at: 2012-07-07 21:30:56
+  author_id: 1
+  page_id: 1
+
+two:
+  title: MyString
+  content: MyText
+  begin_at: 2012-07-07 21:30:56
+  end_at: 2012-07-07 21:30:56
+  author_id: 1
+  page_id: 1
