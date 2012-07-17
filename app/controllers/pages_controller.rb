@@ -16,10 +16,12 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     if params[:name]
-      @page = Page.by_name params[:name]
+      @page = Page.by_name params[:name] 
     else
       @page = Page.find(params[:id])
     end 
+    
+    not_found if @page.nil?
 
     respond_to do |format|
       format.html # show.html.erb

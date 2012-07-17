@@ -3,21 +3,23 @@
 <% end %>
 
 <h1><%= @page.title %></h1>
+
 <% if can? :update, @page %>
-  <em>Skapad av:
-    <%= link_to @page.original_author, @page.original_author %>, 
-    <%= l @page.created_at.to_date %>
-  </em>
-  <% if @page.original_author != @page.recent_author %>
-    <br>
-    <em>Senast ändrad av:
-      <%= link_to @page.recent_author, @page.recent_author %>,
-      <%= l @page.updated_at.to_date %>
+  <div class=framed>
+    <em>Skapad av:
+      <%= link_to @page.original_author, @page.original_author %>, 
+      <%= l @page.created_at.to_date %>
     </em>
-  <% end %>
-<br>
+    <% if @page.original_author != @page.recent_author %>
+      <br>
+      <em>Senast ändrad av:
+        <%= link_to @page.recent_author, @page.recent_author %>,
+        <%= l @page.updated_at.to_date %>
+      </em>
+    <% end %>
+  <%= controls @page %>
+  </div>
 <% end %>
-<%= controls @page %>
 
 
 <%= raw(markdown(@page.content)) %>

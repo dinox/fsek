@@ -1,4 +1,6 @@
 Fsek::Application.routes.draw do
+  resources :events
+
   resources :pages
   resources :settings
   resources :roles
