@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
     before_filter :save_action_controller
     
     def save_action_controller
-      @current_action = action_name
-      @current_controller = controller_name
+      @action = action_name
+      @controller = controller_name
     end
 
     def not_found
-        raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError.new('Not Found')
     end
 
 =begin

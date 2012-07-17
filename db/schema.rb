@@ -11,11 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120629195600) do
+ActiveRecord::Schema.define(:version => 20120708013056) do
 
   create_table "aliases", :force => true do |t|
-    t.integer  "page_id", :null => false
-    t.string   "name", :null => false
+    t.integer "page_id", :null => false
+    t.string  "name",    :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "begins_at"
+    t.datetime "ends_at"
+    t.integer  "user_id"
+    t.integer  "page_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "news", :force => true do |t|

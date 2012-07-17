@@ -4,14 +4,27 @@ module ApplicationHelper
     text.blank? ? "" : Maruku.new(text).to_html
   end
 
+  def put_errors obj
+    if defined? obj.errors and obj.errors.any?
+      s = ''
+      s << "<div id=error_explanation>\n"
+      s << "<h2>#{obj.errors.count} fel hindrade resursen från att sparas.</h2>\n"
+      s << "<ul>\n"
+      obj.errors.full_messages.each do |msg|
+        s << "<li>#{msg}</li>\n"
+      end
+      s << "</ul>\n</div>"
+    end
+  end
+
   def controls(obj, *args)
     options = {:show => true, :edit => true, :destroy => true}
 
-    if @current_action == 'show'
+    if @action == 'show'
       options[:show] = false 
-    elsif @current_action == 'edit'
+    elsif @action == 'edit'
       options[:edit] = false 
-    elsif @current_action == 'new'
+    elsif @action == 'new'
       options[:show] = false
       options[:edit] = false
       options[:destroy] = false
@@ -39,9 +52,9 @@ module ApplicationHelper
       output = ''
       output << "<div class=\"controls\">\n"
       stuff_to_add.each do |s|
-        output << s << " | \n"
+        output << s << " | "
       end
-      output = output[0...-4] + "\n"
+      output = output[0...-3] + "\n"
       output << "</div>\n"
       return raw output
     else

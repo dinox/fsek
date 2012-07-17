@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-<head>
+  <head>
+
   <title>F-sektionen</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag(
@@ -8,30 +9,34 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta charset=utf-8>
-</head>
-<body>
-  <header id=main-container>
-    <nav id=top-menu>
-      <%= link_to raw('<div id=f-logo></div>'),   '/' %>
-      <%= link_to raw('<div>Vill studera</div>'), '/vill-studera' %>
-      <%= link_to raw('<div>Företag</div>'),      '/företag' %>
-      <%= link_to raw('<div>Utskott</div>'),      '/utskott' %>
-      <div class=submenu>
-        <%= link_to raw('<div>Admin</div>'), '/admin' %>
-          <div class=top-sub>
-            <%= link_to 'Nyheter',       News %>
-            <%= link_to 'Användare',     User %>
-            <%= link_to 'Roller',        Role %>
-            <%= link_to 'Inställningar', Setting %>
-            <%= link_to 'Sidor',         Page %>
-          </div>
-      </div>
-      <%= link_to raw('<div>Om F-sektionen</div>'), '/om-f' %>
-      <%= raw('<div>') + render('devise/quicklinks/login_links') + raw('</div>') %>
-    </nav>
-  </header>
-  <article id=content>
-      <%= yield %>
-  </article>
-</body>
+  </head>
+  <body>
+    <header id=main-container>
+      <nav id=top-menu>
+        <%= link_to raw('<div id=f-logo></div>'),   '/' %>
+        <%= link_to raw('<div>Vill studera</div>'), '/vill-studera' %>
+        <%= link_to raw('<div>Företag</div>'),      '/företag' %>
+        <%= link_to raw('<div>Utskott</div>'),      '/utskott' %>
+        <div class=submenu>
+          <%= link_to raw('<div>Admin</div>'), '/admin' %>
+            <div class=top-sub>
+              <%= link_to 'Nyheter',       News %>
+              <%= link_to 'Events',        Event %>
+              <%= link_to 'Användare',     User %>
+              <%= link_to 'Roller',        Role %>
+              <%= link_to 'Inställningar', Setting %>
+              <%= link_to 'Sidor',         Page %>
+            </div>
+        </div>
+        <%= link_to raw('<div>Om F-sektionen</div>'), '/om-f' %>
+        <div>
+          <%= render('devise/quicklinks/login_links') %>
+        </div>
+      </nav>
+    </header>
+    <article id=content data-controller="<%= @controller %>" 
+             data-action="<%= @action %>">
+        <%= yield %>
+    </article>
+  </body>
 </html>

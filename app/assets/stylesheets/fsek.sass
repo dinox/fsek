@@ -1,4 +1,4 @@
-// fsek.css.scss
+// fsek.sass
 
 // global constants
 
@@ -39,6 +39,7 @@ p
     color: black
     font-size: 11pt
     margin: 20px 0
+    text-align: justify
 
 h1 
     margin: 0 0 20px 0
@@ -67,13 +68,26 @@ td
 
 // rails stuff
 
-#notice 
+p#notice 
+    @include round_corners($border_radius)
     background-color: $o_light
+    border: 2px solid $o_dark
+    padding: 4px
+    color: white
+    font-weight: bold
 
 // used in several views
 
+.framed
+    border-top: 2px solid $o_light
+    border-bottom: 2px solid $o_light
+    padding: 4px 0
+    margin: 4px 0
+    line-height: 150%
+
 .controls a
     font-weight: bold
+
 
 .field
     margin: 10px 0

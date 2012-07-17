@@ -1,3 +1,4 @@
+require 'xz'
 require 'xmlsimple'
 
 def vecktor_clean
@@ -5,15 +6,19 @@ def vecktor_clean
   VecktorNotice.delete_all
 end
 
+def xzread(file)
+  XZ.decompress(File.open(file).read)
+end
+
 def vecktor_get
-  vecktor_data = XmlSimple.xml_in 'db/old_vecktors.xml'
-  notice_data  = XmlSimple.xml_in 'db/old_notices.xml'
+  vecktor_data = XmlSimple.xml_in xzread 'db/old_vecktors.xml.xz'
+  notice_data  = XmlSimple.xml_in xzread 'db/old_notices.xml.xz'
   [vecktor_data, notice_data]
 end
 
 def vecktor_load
-  vecktor_data = XmlSimple.xml_in 'db/old_vecktors.xml'
-  notice_data  = XmlSimple.xml_in 'db/old_notices.xml'
+  vecktor_data = XmlSimple.xml_in xzread 'db/old_vecktors.xml.xz'
+  notice_data  = XmlSimple.xml_in xzread 'db/old_notices.xml.xz'
 
   vecktor_data['vecktorer'].each do |row|
     v_old_id = row['id'][0].to_i
