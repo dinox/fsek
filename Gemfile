@@ -13,7 +13,6 @@ gem 'maruku'
 gem 'devise'
 gem 'cancan'
 gem 'rails-settings-cached'
-gem 'xml-simple'
 gem 'paperclip'
 
 # Gems used only for assets and not required
@@ -29,6 +28,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+# vecktor_load.rb
+gem 'xml-simple'
+gem 'ruby-xz', :require => 'xz'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
