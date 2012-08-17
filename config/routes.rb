@@ -15,7 +15,6 @@ Fsek::Application.routes.draw do
   end
 
   match 'vecktorn' => 'vecktors#show' # Genväg som visar senaste vecktorn.
-  match '/:name' => 'pages#show'
 
   #Inloggningsrelaterat
   devise_for :users, :skip => [:sessions]
@@ -28,6 +27,9 @@ Fsek::Application.routes.draw do
 
   #Root
   root to: 'news#index'
+
+  #OBS! Denna måste ligga längst ner i filen för att inte förstöra alla andra routes!
+  match '/:name' => 'pages#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
