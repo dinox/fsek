@@ -1,6 +1,10 @@
 Fsek::Application.routes.draw do
+  
+  #Här är ett antal routes specifika för huvudmenyn
+  match 'utskott' => 'pages#index'
+  
+  #Vanliga resources
   resources :events
-
   resources :pages
   resources :settings
   resources :roles
@@ -11,16 +15,20 @@ Fsek::Application.routes.draw do
   end
 
   match 'vecktorn' => 'vecktors#show' # Genväg som visar senaste vecktorn.
+  match '/:name' => 'pages#show'
 
+  #Inloggningsrelaterat
   devise_for :users, :skip => [:sessions]
   as :user do
-    get 'login' => 'devise/sessions#new', :as => :new_user_session
-    post 'login' => 'devise/sessions#create', :as => :user_session
-    delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
-    get 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+    get 'login' => 'devise/sessions#new', as: :new_user_session
+    post 'login' => 'devise/sessions#create', as: :user_session
+    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+    get 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  match '/:name' => 'pages#show'
+  #Root
+  root to: 'news#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -70,7 +78,6 @@ Fsek::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-root :to => 'news#index'
 
   # See how all your routes lay out with "rake routes"
 
