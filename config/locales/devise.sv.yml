@@ -35,10 +35,9 @@ sv:
       inactive_signed_up: 'Ett nytt konto har skapats. Du kunde inte logga in, för ditt konto är %{reason}.'
       updated: 'Ditt konto har uppdaterats.'
       destroyed: 'Hej då! Ditt konto har avregistrerats. Vi hoppas få se dig snart igen.'
-      reasons:
-        inactive: 'inaktivt'
-        unconfirmed: 'inte aktiverat'
-        locked: 'låst'
+      signed_up_but_unconfirmed: 'En bekräftelselänk har skickats till din email adress. Du måste besöka denna för att aktivera ditt konto.'
+      signed_up_but_inactive: 'Du är registrerad men eftersom ditt konto ännu inte är aktiverat kan du inte logga in.'
+      signed_up_but_locked: 'Du är registrerad men eftersom ditt konto är låst kan du inte logga in.'
     unlocks:
       send_instructions: 'Du kommer få epost med instruktioner om hur du kan låsa upp ditt konto inom några minuter.'
       unlocked: 'Ditt konto har låsts upp. Du är nu inloggad.'
