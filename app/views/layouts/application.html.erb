@@ -13,10 +13,10 @@
   <body>
     <header id=main-container>
       <nav id=top-menu>
-        <%= link_to raw('<div id=f-logo></div>'),   '/' %>
+        <%= link_to raw('<div id=f-logo></div>'),   root_path %>
         <%= link_to raw('<div>Vill studera</div>'), '/vill-studera' %>
         <%= link_to raw('<div>Företag</div>'),      '/företag' %>
-        <%= link_to raw('<div>Utskott</div>'),      '/utskott' %>
+        <%= link_to raw('<div>Utskott</div>'),      utskott_path %>
         <div class=submenu>
           <%= link_to raw('<div>Admin</div>'), '/admin' %>
             <div class=top-sub>
