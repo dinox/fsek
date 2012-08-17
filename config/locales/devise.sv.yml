@@ -32,7 +32,6 @@ sv:
       confirmed: 'Ditt konto har bekräftats. Du är nu inloggad.'
     registrations:
       signed_up: 'Ett nytt konto har skapats. En bekräftelse har skickats till din epost.'
-      inactive_signed_up: 'Ett nytt konto har skapats. Du kunde inte logga in, för ditt konto är %{reason}.'
       updated: 'Ditt konto har uppdaterats.'
       destroyed: 'Hej då! Ditt konto har avregistrerats. Vi hoppas få se dig snart igen.'
       signed_up_but_unconfirmed: 'En bekräftelselänk har skickats till din email adress. Du måste besöka denna för att aktivera ditt konto.'
