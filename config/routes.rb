@@ -1,7 +1,6 @@
 Fsek::Application.routes.draw do
   
   #Här är ett antal routes specifika för huvudmenyn
-  match 'utskott' => 'pages#index'
   
   #Vanliga resources
   resources :events
