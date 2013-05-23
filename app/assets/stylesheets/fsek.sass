@@ -120,9 +120,9 @@ $menu_height: 40px
 nav#top-menu
     @include lingrad
     @include round-corners($border_radius)
-    //position: relative
     height: $menu_height
     margin: 20px
+    z-index: 100
     border: $g_light 1px solid
     padding: 0
     div 
@@ -152,7 +152,7 @@ nav#top-menu
         position: absolute
         top: $menu_height
         left: -1px
-        z-index: 0
+        z-index: 1
         background: $o_light
         border: $g_light 1px solid
         border-top: none
