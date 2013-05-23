@@ -15,6 +15,8 @@ gem 'cancan'
 gem 'rails-settings-cached'
 gem 'paperclip'
 
+gem 'rambling-slider-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
