@@ -11,3 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require_tree .
+//= require jquery.rambling.slider
+//= require jquery.rambling.slider.min

@@ -1,3 +1,18 @@
+      <div id="wrapper">
+        <div class="slider-wrapper theme-orman">
+          <div id="slider">
+            <%= image_tag "bild2.png" %>
+            <%= image_tag "bild3.png" %>
+            <%= image_tag "bild1.png" %>
+          </div>
+        </div>
+      </div>
+     <script type="text/javascript">
+      $(window).load(function() {
+          $('#slider').ramblingSlider();
+      });
+    </script>
+ 
 <% unless @bare %>
   <% if can? :create, News %> 
     <div class=framed>

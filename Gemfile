@@ -14,6 +14,9 @@ gem 'devise'
 gem 'cancan'
 gem 'rails-settings-cached'
 gem 'paperclip'
+gem 'thin'
+
+gem 'rambling-slider-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
