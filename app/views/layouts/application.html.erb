@@ -34,9 +34,23 @@
         </div>
       </nav>
       </header>
+      <div id="wrapper">
+        <div class="slider-wrapper theme-orman">
+          <div id="slider">
+            <%= image_tag "bild2.png", :height => "50%", :width => "50%" %>
+            <%= image_tag "bild3.png" %>
+            <%= image_tag "bild1.png" %>
+          </div>
+        </div>
+      </div>
     <article id=content data-controller="<%= @controller %>" 
              data-action="<%= @action %>">
         <%= yield %>
     </article>
- </body>
+    <script type="text/javascript">
+      $(window).load(function() {
+          $('#slider').ramblingSlider();
+      });
+    </script>
+  </body>
 </html>
